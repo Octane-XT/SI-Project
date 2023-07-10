@@ -39,7 +39,7 @@ CREATE TABLE IF NOT EXISTS code (
     id INT PRIMARY KEY AUTO_INCREMENT,
     nom VARCHAR(30),
     argent DOUBLE NOT NULL,
-    estutilise INT DEFAULT 0                     ----------------- 0 CREE ---------- 1 REHEFA MBOLA TS VALIDE --------- 11 REHEFA VALIDE -------------
+    estutilise INT DEFAULT 0
 );
 
 CREATE TABLE IF NOT EXISTS regime (

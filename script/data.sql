@@ -1,8 +1,8 @@
-insert into utilisateur values (default, 'RANDRIA', 'Isabelle', '24-01-2004', 'isa@gmail.mg', 'IH 344 M', '1234', 0, 0, 0, 0, 1, default);
-insert into utilisateur values (default, 'RANDRIA', 'Ny Kanto', '23-06-2005', 'nyka@gmail.mg', 'IG 117 A', '1234', 1, 100000, 50, 166, 0, default);
-insert into utilisateur values (default, 'RAKOTO', 'Zo', '15-07-2000', 'zo@gmail.mg', 'ID 988 E', '1234', 1, 50000, 65, 170, 0, default);
-insert into utilisateur values (default, 'ANDRIA', 'Rasoa', '02-09-1999', 'rabe@gmail.mg', 'IV 673 J', '1234', 0, 100000, 50, 155, 0, default);
-insert into utilisateur values (default, 'RAZAFY', 'Jeanne', '10-04-2003', 'rajeanne@gmail.mg', 'IK 273 P', '1234', 0, 75000, 90, 175, 0, default);
+insert into utilisateur values (default, 'RANDRIA', 'Isabelle', '2004-01-24', 'isa@gmail.mg', 'IH 344 M', '1234', 0, 0, 0, 0, 1, default);
+insert into utilisateur values (default, 'RANDRIA', 'Ny Kanto', '2005-06-23', 'nyka@gmail.mg', 'IG 117 A', '1234', 1, 100000, 50, 166, 0, default);
+insert into utilisateur values (default, 'RAKOTO', 'Zo', '2000-07-15', 'zo@gmail.mg', 'ID 988 E', '1234', 1, 50000, 65, 170, 0, default);
+insert into utilisateur values (default, 'ANDRIA', 'Rasoa', '1999-09-02', 'rabe@gmail.mg', 'IV 673 J', '1234', 0, 100000, 50, 155, 0, default);
+insert into utilisateur values (default, 'RAZAFY', 'Jeanne', '2003-04-10', 'rajeanne@gmail.mg', 'IK 273 P', '1234', 0, 75000, 90, 175, 0, default);
 
 insert into sport values (default, 'squats');
 insert into sport values (default, 'flexions');
