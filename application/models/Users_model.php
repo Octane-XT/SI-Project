@@ -9,7 +9,7 @@ class Users_model extends CI_Model
         return $query->result();
     }
 
-    public function check($email,$pwd)
+    public function check($email, $pwd)
     {
         $this->db->where('email', $email);
         $this->db->where('password', $pwd);
@@ -24,7 +24,10 @@ class Users_model extends CI_Model
             'prenom' => $this->input->post('prenom'),
             'date_naissance' => $this->input->post('date_naissance'),
             'email' => $this->input->post('email'),
-            'password' => $this->input->post('password')
+            'password' => $this->input->post('password'),
+            'genre' => $this->input->post('genre'),
+            'poids' => $this->input->post('poids'),
+            'taille' => $this->input->post('taille')
         );
         $this->db->insert('utilisateur', $data);
     }

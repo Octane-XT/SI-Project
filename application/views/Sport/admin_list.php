@@ -22,18 +22,16 @@
                     <thead>
                         <tr>
                             <th>Nom</th>
-                            <th>Type</th>
                             <th></th>
                             <th></th>
                         </tr>
                     </thead>
                     <tbody>
-                        <?php for ($i = 0; $i < count($listAliment); $i++) { ?>
+                        <?php for ($i = 0; $i < count($listSport); $i++) { ?>
                             <tr>
-                                <td><?php echo $listAliment[$i]['nom']; ?></td>
-                                <td><?php echo $listAliment[$i]['typenom']; ?></td>
-                                <td><a href="<?php echo base_url('Aliment/edit/' . $listAliment[$i]['id']); ?>"><button class="btn btn-info">Modifier</button></a></td>
-                                <td><a href="<?php echo base_url('Aliment/delete/' . $listAliment[$i]['id']); ?>"><button class="btn btn-danger">Supprimer</button></a></td>
+                                <td><?php echo $listSport[$i]->nom; ?></td>
+                                <td><a href="<?php echo base_url('Sport/edit/' . $listSport[$i]->id); ?>"><button class="btn btn-info">Modifier</button></a></td>
+                                <td><a href="<?php echo base_url('Sport/delete/' . $listSport[$i]->id); ?>"><button class="btn btn-danger">Supprimer</button></a></td>
                             </tr>
                         <?php } ?>
                     </tbody>

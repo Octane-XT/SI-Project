@@ -28,9 +28,6 @@
 </head>
 
 <body>
-
-
-
 	<!-- Start wrapper-->
 	<div id="wrapper">
 
@@ -38,7 +35,7 @@
 			<div class="card-body">
 				<div class="card-content p-2">
 					<div class="text-center">
-						<img src="assets/images/logo.jpg" alt="logo icon" style="width:30px; heigth:30px">
+						<img src="assets/images/logo.jpg" alt="logo icon" style="width:30px; height:30px;">
 					</div>
 					<div class="card-title text-uppercase text-center py-3">Sign Up</div>
 					<form method="POST" action="<?php echo base_url("Register/add"); ?>">
@@ -93,6 +90,41 @@
 						</div>
 
 						<div class="form-group">
+							<label for="exampleInputName" class="sr-only">Genre</label>
+							<div class="position-relative has-icon-right">
+								<select name="genre" id="exampleInputName" class="form-control input-shadow">
+									<option value="">Sélectionnez le genre</option>
+									<option value="1">Homme</option>
+									<option value="0">Femme</option>
+								</select>
+								<div class="form-control-position">
+									<i class="icon-user"></i>
+								</div>
+							</div>
+						</div>
+
+
+						<div class="form-group">
+							<label for="exampleInputName" class="sr-only">Poids</label>
+							<div class="position-relative has-icon-right">
+								<input type="text" name="poids" id="exampleInputName" class="form-control input-shadow" placeholder="Enter Your Weight">
+								<div class="form-control-position">
+									<i class="icon-user"></i>
+								</div>
+							</div>
+						</div>
+
+						<div class="form-group">
+							<label for="exampleInputName" class="sr-only">Taille</label>
+							<div class="position-relative has-icon-right">
+								<input type="text" name="taille" id="exampleInputName" class="form-control input-shadow" placeholder="Enter Your Height">
+								<div class="form-control-position">
+									<i class="icon-user"></i>
+								</div>
+							</div>
+						</div>
+
+						<div class="form-group">
 							<div class="icheck-material-white">
 								<input type="checkbox" id="user-checkbox" checked="" />
 								<label for="user-checkbox">I Agree With Terms & Conditions</label>
@@ -118,24 +150,15 @@
 				<p class="text-warning mb-0">Already have an account? <a href="<?php echo base_url("Login"); ?>"> Sign In here</a></p>
 			</div>
 		</div>
-
-
-
-
 	</div><!--wrapper-->
-
 	<!-- Bootstrap core JavaScript-->
 	<script src="<?php echo base_url('assets/js/jquery.min.js'); ?>"></script>
 	<script src="<?php echo base_url('assets/js/popper.min.js'); ?>"></script>
 	<script src="<?php echo base_url('assets/js/bootstrap.min.js'); ?>"></script>
-
 	<!-- sidebar-menu js -->
 	<script src="<?php echo base_url('assets/js/sidebar-menu.js'); ?>"></script>
-
 	<!-- Custom scripts -->
 	<script src="<?php echo base_url('assets/js/app-script.js'); ?>"></script>
-
-
 </body>
 
 </html>
