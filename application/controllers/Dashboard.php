@@ -11,7 +11,7 @@ class Dashboard extends CI_Controller
         $this->load->view('header');
         $this->load->view('slidebar_back');
         $this->load->view('dashboard');
-        // $this->load->view('footer');
+        $this->load->view('footer');
 
     }
 }
