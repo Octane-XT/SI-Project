@@ -23,7 +23,7 @@ class Login extends CI_Controller
 			redirect('Login');
 		} else {
 			$this->session->set_userdata('iduser',$login->id);
-			redirect('Dashboard');
+			redirect('Landing');
 		}
 	}
 
