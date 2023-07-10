@@ -9,7 +9,7 @@ class Users_model extends CI_Model
         return $query->result();
     }
 
-    public function check($email,$pwd)
+    public function check($email, $pwd)
     {
         $this->db->where('email', $email);
         $this->db->where('password', $pwd);
@@ -45,5 +45,17 @@ class Users_model extends CI_Model
     {
         $this->db->where('id', $id);
         $this->db->delete('utilisateur');
+    }
+
+    public function add_profil($id, $genre, $vola, $poids, $taille)
+    {
+        $this->db->where('id', $id);
+        $data = array(
+            'genre' => $genre,
+            'vola' => $vola,
+            'poids' => $poids,
+            'taille' => $taille
+        );
+        $this->db->update('utilisateur', $data);
     }
 }
