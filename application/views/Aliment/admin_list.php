@@ -32,8 +32,8 @@
                             <tr>
                                 <td><?php echo $listAliment[$i]['nom']; ?></td>
                                 <td><?php echo $listAliment[$i]['typenom']; ?></td>
-                                <td><a href=""><button class="btn btn-info">Modifier</button></a></td>
-                                <td><a href="<?php echo base_url('Aliment/delete/' . $listAliment[$i]['id']) ?>"><button class="btn btn-danger">Supprimer</button></a></td>
+                                <td><a href="<?php echo base_url('Aliment/edit/' . $listAliment[$i]['id']); ?>"><button class="btn btn-info">Modifier</button></a></td>
+                                <td><a href="<?php echo base_url('Aliment/delete/' . $listAliment[$i]['id']); ?>"><button class="btn btn-danger">Supprimer</button></a></td>
                             </tr>
                         <?php } ?>
                     </tbody>

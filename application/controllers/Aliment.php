@@ -14,6 +14,7 @@ class Aliment extends CI_Controller
         $data['listAliment'] = $this->Aliment_model->getAllAliment();
         $data['listTypeAliment'] = $this->Aliment_model->getAllTypeAliment();
         $this->load->view('header');
+        $this->load->view('slidebar_back');
         $this->load->view('Aliment/admin_add', $data);
         $this->load->view('Aliment/admin_list', $data);
         $this->load->view('footer');
@@ -24,6 +25,11 @@ class Aliment extends CI_Controller
         $id_type_aliment = $this->input->post('type');
         $nom = $this->input->post('nom');
         $this->Aliment_model->insert($id_type_aliment, $nom);
+        redirect('Aliment');
+    }
+
+    public function edit($id)
+    {
         redirect('Aliment');
     }
 
