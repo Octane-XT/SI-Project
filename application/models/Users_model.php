@@ -24,7 +24,10 @@ class Users_model extends CI_Model
             'prenom' => $this->input->post('prenom'),
             'date_naissance' => $this->input->post('date_naissance'),
             'email' => $this->input->post('email'),
-            'password' => $this->input->post('password')
+            'password' => $this->input->post('password'),
+            'genre' => $this->input->post('genre'),
+            'poids' => $this->input->post('poids'),
+            'taille' => $this->input->post('taille')
         );
         $this->db->insert('utilisateur', $data);
     }
@@ -45,17 +48,5 @@ class Users_model extends CI_Model
     {
         $this->db->where('id', $id);
         $this->db->delete('utilisateur');
-    }
-
-    public function add_profil($id, $genre, $vola, $poids, $taille)
-    {
-        $this->db->where('id', $id);
-        $data = array(
-            'genre' => $genre,
-            'vola' => $vola,
-            'poids' => $poids,
-            'taille' => $taille
-        );
-        $this->db->update('utilisateur', $data);
     }
 }
