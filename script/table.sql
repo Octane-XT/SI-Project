@@ -1,104 +1,106 @@
--- create database regime;
+-- CREATE DATABASE regime;
 
-create table if not exists utilisateur (
-    id int primary key auto_increment,
-    nom varchar(60),
-    prenom varchar(60),
-    date_naissance date,
-    email varchar(40),
-    adresse varchar(40),
-    password varchar(30),
-    genre int,
-    vola double precision default 0,
-    poids double precision default 0,
-    taille double precision default 0,
-    isadmin int default 0,
-    date date default now()
+-- USE regime;
+
+CREATE TABLE IF NOT EXISTS utilisateur (
+    id INT PRIMARY KEY AUTO_INCREMENT,
+    nom VARCHAR(60),
+    prenom VARCHAR(60),
+    date_naissance DATE,
+    email VARCHAR(40),
+    adresse VARCHAR(40),
+    password VARCHAR(30),
+    genre INT,
+    vola DOUBLE DEFAULT 0,
+    poids DOUBLE DEFAULT 0,
+    taille DOUBLE DEFAULT 0,
+    isadmin INT DEFAULT 0,
+    date_creation DATETIME DEFAULT CURRENT_TIMESTAMP
 );
 
-create table if not exists sport (
-    id int primary key auto_increment,
-    nom varchar(40)
+CREATE TABLE IF NOT EXISTS sport (
+    id INT PRIMARY KEY AUTO_INCREMENT,
+    nom VARCHAR(40)
 );
 
-create table if not exists type_aliment (
-    id int primary key auto_increment,
-    nom varchar(40)
+CREATE TABLE IF NOT EXISTS type_aliment (
+    id INT PRIMARY KEY AUTO_INCREMENT,
+    nom VARCHAR(40)
 );
 
-create table if not exists aliment (
-    id int primary key auto_increment,
-    nom varchar(40),
-    id_type_aliment int not null,
-    foreign key(id_type_aliment) references type_aliment(id)
+CREATE TABLE IF NOT EXISTS aliment (
+    id INT PRIMARY KEY AUTO_INCREMENT,
+    nom VARCHAR(40),
+    id_type_aliment INT NOT NULL,
+    FOREIGN KEY (id_type_aliment) REFERENCES type_aliment(id)
 );
 
 CREATE TABLE IF NOT EXISTS code (
-    id int primary key auto_increment,
-    nom varchar(30),
-    argent double precision not null,
-    estutilise int default 0                                    ------------ 0 CREE ---- 1 NISY NAKA FA MBOLA TSY VALIDE ---- 11 VALIDEE NY ADMIN -----------
+    id INT PRIMARY KEY AUTO_INCREMENT,
+    nom VARCHAR(30),
+    argent DOUBLE NOT NULL,
+    estutilise INT DEFAULT 0                     ----------------- 0 CREE ---------- 1 REHEFA MBOLA TS VALIDE --------- 11 REHEFA VALIDE -------------
 );
 
 CREATE TABLE IF NOT EXISTS regime (
-    id int primary key auto_increment,
-    nom varchar(30),
-    objectif int
+    id INT PRIMARY KEY AUTO_INCREMENT,
+    nom VARCHAR(30),
+    objectif INT
 );
 
-create table if not exists aliment_objectif (
-    id int primary key auto_increment,
-    id_aliment int not null,
-    id_regime int not null,
-    quantite double precision,
-    poids double precision,
-    prix double precision,
-    foreign key(id_aliment) references aliment(id),
-    foreign key(id_regime) references regime(id)
+CREATE TABLE IF NOT EXISTS aliment_objectif (
+    id INT PRIMARY KEY AUTO_INCREMENT,
+    id_aliment INT NOT NULL,
+    id_regime INT NOT NULL,
+    quantite DOUBLE,
+    poids DOUBLE,
+    prix DOUBLE,
+    FOREIGN KEY (id_aliment) REFERENCES aliment(id),
+    FOREIGN KEY (id_regime) REFERENCES regime(id)
 );
 
-create table if not exists sport_objectif (
-    id int primary key auto_increment,
-    id_sport int not null,
-    id_regime int not null,
-    frequence double precision,
-    poids double precision,
-    prix double precision default 3000,
-    foreign key(id_sport) references sport(id),
-    foreign key(id_regime) references regime(id)
+CREATE TABLE IF NOT EXISTS sport_objectif (
+    id INT PRIMARY KEY AUTO_INCREMENT,
+    id_sport INT NOT NULL,
+    id_regime INT NOT NULL,
+    frequence DOUBLE,
+    poids DOUBLE,
+    prix DOUBLE DEFAULT 3000,
+    FOREIGN KEY (id_sport) REFERENCES sport(id),
+    FOREIGN KEY (id_regime) REFERENCES regime(id)
 );
 
-create table if not exists abonnement (
-    id int primary key auto_increment,
-    id_utilisateur int not null,
-    id_regime int not null,
-    poids_objectif double precision,
-    datedebut date,
-    datefin date,
-    foreign key(id_utilisateur) references utilisateur(id),
-    foreign key(id_regime) references regime(id)
+CREATE TABLE IF NOT EXISTS abonnement (
+    id INT PRIMARY KEY AUTO_INCREMENT,
+    id_utilisateur INT NOT NULL,
+    id_regime INT NOT NULL,
+    poids_objectif DOUBLE,
+    datedebut DATE,
+    datefin DATE,
+    FOREIGN KEY (id_utilisateur) REFERENCES utilisateur(id),
+    FOREIGN KEY (id_regime) REFERENCES regime(id)
 );
 
-create table if not exists motif (
-    id int primary key auto_increment,
-    nom varchar(30)
+CREATE TABLE IF NOT EXISTS motif (
+    id INT PRIMARY KEY AUTO_INCREMENT,
+    nom VARCHAR(30)
 );
 
-create table if not exists transaction (
-    id int primary key auto_increment,
-    id_utilisateur int not null,
-    vola double precision not null,
-    type int,
-    id_motif int not null,
-    foreign key(id_utilisateur) references utilisateur(id)
-    foreign key(id_motif) references motif(id)
+CREATE TABLE IF NOT EXISTS transaction (
+    id INT PRIMARY KEY AUTO_INCREMENT,
+    id_utilisateur INT NOT NULL,
+    vola DOUBLE NOT NULL,
+    type INT,
+    id_motif INT NOT NULL,
+    FOREIGN KEY (id_utilisateur) REFERENCES utilisateur(id),
+    FOREIGN KEY (id_motif) REFERENCES motif(id)
 );
 
-create table if not exists livraison (
-    id int primary key auto_increment,
-    id_abonnement int not null,
-    id_aliment_objectif int not null,
-    jour int not null,
-    foreign key(id_abonnement) references abonnement(id)
-    foreign key(id_aliment_objectif) references aliment_objectif(id)
+CREATE TABLE IF NOT EXISTS livraison (
+    id INT PRIMARY KEY AUTO_INCREMENT,
+    id_abonnement INT NOT NULL,
+    id_aliment_objectif INT NOT NULL,
+    jour INT NOT NULL,
+    FOREIGN KEY (id_abonnement) REFERENCES abonnement(id),
+    FOREIGN KEY (id_aliment_objectif) REFERENCES aliment_objectif(id)
 );
