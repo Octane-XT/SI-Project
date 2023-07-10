@@ -23,7 +23,7 @@ class Aliment_model extends CI_Model
     public function getAlimentByType($type)
     {
         $compte = array();
-        $request = "SELECT a.id, a.nom, t_a.id, t_a.nom FROM aliment a JOIN type_aliment t_a ON a.id_type_aliment = t_a.id where a.id_type_aliment = %s;";
+        $request = "SELECT a.id as id, a.nom as nom, t_a.id as idtype, t_a.nom as nomtype FROM aliment a JOIN type_aliment t_a ON a.id_type_aliment = t_a.id where a.id_type_aliment = %s;";
 
         $query = $this->db->query(sprintf($request, $type));
         foreach ($query->result_array() as $row) {

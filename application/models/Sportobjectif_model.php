@@ -14,13 +14,14 @@ class Sportobjectif_model extends CI_Model
         return $compte;
     }
 
-    public function insert($id_sport, $id_regime, $quantite, $poids)
+    public function insert($id_sport, $id_regime, $frequence, $poids, $prix)
     {
         $data = array(
             'id_sport' => $id_sport,
             'id_regime' => $id_regime,
-            'quantite' => $quantite,
-            'poids' => $poids
+            'frequence' => $frequence,
+            'poids' => $poids,
+            'prix' => $prix
         );
         $this->db->insert('sport_objectif', $data);
     }
