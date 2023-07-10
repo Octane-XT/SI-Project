@@ -32,7 +32,10 @@ class Aliment extends CI_Controller
     {
         $data['id'] = $id;
         $data['listTypeAliment'] = $this->Aliment_model->getAllTypeAliment();
+        $this->load->view('header');
+        $this->load->view('slidebar_back');
         $this->load->view('Aliment/admin_edit', $data);
+        $this->load->view('footer');
     }
 
     public function update()
