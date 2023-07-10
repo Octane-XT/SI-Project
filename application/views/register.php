@@ -99,7 +99,7 @@
 							</div>
 						</div>
 
-						<button type="button" class="btn btn-light btn-block waves-effect waves-light">Sign Up</button>
+						<button type="submit" class="btn btn-light btn-block waves-effect waves-light">Sign Up</button>
 						<div class="text-center mt-3">Sign Up With</div>
 
 						<div class="form-row mt-4">
