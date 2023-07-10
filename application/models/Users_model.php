@@ -5,7 +5,7 @@ class Users_model extends CI_Model
 {
     public function get_user()
     {
-        $query = $this->db->get('users');
+        $query = $this->db->get('utilisateur');
         return $query->result();
     }
 
@@ -13,7 +13,7 @@ class Users_model extends CI_Model
     {
         $this->db->where('email', $email);
         $this->db->where('password', $pwd);
-        $query = $this->db->get('users');
+        $query = $this->db->get('utilisateur');
         return $query->row();
     }
 
@@ -26,25 +26,24 @@ class Users_model extends CI_Model
             'email' => $this->input->post('email'),
             'password' => $this->input->post('password')
         );
-        $this->db->insert('users', $data);
+        $this->db->insert('utilisateur', $data);
     }
 
     public function edit_user($id)
     {
         $data = array(
-            'firstname' => $this->input->post('fname'),
-            'lastname' => $this->input->post('lname'),
+            'nom' => $this->input->post('fname'),
+            'prenom' => $this->input->post('lname'),
             'email' => $this->input->post('mail'),
-            'password' => $this->input->post('pass'),
-            'idposte' => $this->input->post('idposte')
+            'password' => $this->input->post('pass')
         );
         $this->db->where('id', $id);
-        $this->db->update('users', $data);
+        $this->db->update('utilisateur', $data);
     }
 
     public function delete_user($id)
     {
         $this->db->where('id', $id);
-        $this->db->delete('users');
+        $this->db->delete('utilisateur');
     }
 }
