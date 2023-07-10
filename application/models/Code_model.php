@@ -18,4 +18,12 @@ class Code_model extends CI_Model
         );
         $this->db->insert('code', $data);
     }
+
+    public function update($id){
+        $data = array(
+            'estutilise' => 1
+        );
+        $this->db->where('nom', $id);
+        $this->db->update('code', $data);
+    }
 }
