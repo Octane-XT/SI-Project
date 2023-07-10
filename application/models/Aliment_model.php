@@ -13,6 +13,13 @@ class Aliment_model extends CI_Model
         }
         return $compte;
     }
+
+    public function getAllTypeAliment()
+    {
+        $query = $this->db->get('type_aliment');
+        return $query->result();
+    }
+
     public function getAlimentByType($type)
     {
         $compte = array();
