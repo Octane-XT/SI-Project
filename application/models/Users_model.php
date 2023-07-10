@@ -32,16 +32,15 @@ class Users_model extends CI_Model
         $this->db->insert('utilisateur', $data);
     }
     public function getByMonth($month)
-{
-    $compte = 0;
-    $request = "SELECT count(*)  as count from utilisateur where MONTH(date_creation) = %s ;";
-    $query = $this->db->query(sprintf($request,$month));
-    foreach ($query->result_array() as $row) {
-        $compte = $row['count'];
+    {
+        $compte = 0;
+        $request = "SELECT count(*)  as count from utilisateur where MONTH(date_creation) = %s ;";
+        $query = $this->db->query(sprintf($request, $month));
+        foreach ($query->result_array() as $row) {
+            $compte = $row['count'];
+        }
+        return $compte;
     }
-    return $compte;
-
-}
     public function edit_user($id)
     {
         $data = array(

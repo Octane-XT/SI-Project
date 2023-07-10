@@ -50,3 +50,6 @@ insert into code values (default, 'IF9823JFUC', 70000, 0);
 
 insert into motif values (default, 'achat abonnement');
 insert into motif values (default, 'achat code');
+
+insert into regime values (default, 'augmenter le poids', 1);
+insert into regime values (default, 'diminuer le poids', -1);
