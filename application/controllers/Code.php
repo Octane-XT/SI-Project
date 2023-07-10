@@ -32,7 +32,9 @@ class Code extends CI_Controller
 
     public function check_code(){
         $code = $this->input->post('code');
-        $login = $this->Code_model->update($code);
-        redirect('code/index');
+        $this->Code_model->update($code);
+        $id = $this->Code_model->getid($code);
+        $this->Code_model->insert_user($this->session->userdata('iduser'),$id[0]->id);
+        redirect('');
     }
 }
