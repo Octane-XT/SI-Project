@@ -128,7 +128,25 @@ class Regime extends CI_Controller
         });
         $poidssport = array_values($poidssport);
 
+        if (count($quantitepetitdej) != count($prixpetitdej) || count($quantitepetitdej) != count($poidspetitdej) || count($prixpetitdej) != count($poidspetitdej)) {
+            redirect('Regime');
+        }
 
+        if (count($quantitegouter) != count($prixgouter) || count($quantitegouter) != count($poidsgouter) || count($prixgouter) != count($poidsgouter)) {
+            redirect('Regime');
+        }
+
+        if (count($quantitedejeuner) != count($prixdejeuner) || count($quantitedejeuner) != count($poidsdejeuner) || count($prixdejeuner) != count($poidsdejeuner)) {
+            redirect('Regime');
+        }
+
+        if (count($quantitediner) != count($prixdiner) || count($quantitediner) != count($poidsdiner) || count($prixdiner) != count($poidsdiner)) {
+            redirect('Regime');
+        }
+
+        if (count($frequencesport) != count($prixsport) || count($frequencesport) != count($poidssport) || count($prixsport) != count($poidssport)) {
+            redirect('Regime');
+        }
 
         $this->Regime_model->insert($nomregime, $typeregime);
 
@@ -179,7 +197,7 @@ class Regime extends CI_Controller
             $this->Sportobjectif_model->insert($activite, intval($regimebynomobjectif->id), $frequence, $poids, $prix);
         }
 
-        redirect('Regime');
+        // redirect('Regime');
     }
 
     public function edit($id)
