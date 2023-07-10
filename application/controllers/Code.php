@@ -15,7 +15,8 @@ class Code extends CI_Controller
             redirect('login');
         }
         $this->load->view('header');
-        $this->load->view('code/index');
+        $this->load->view('code/add');
+        $this->load->view('code/list');
         $this->load->view('footer');
     }
 
@@ -31,7 +32,7 @@ class Code extends CI_Controller
 
     public function check_code(){
         $code = $this->input->post('code');
-        $login = $this->Code_model->check($code);
-        redirect('portemonnaie/index');
+        $login = $this->Code_model->update($code);
+        redirect('code/index');
     }
 }
