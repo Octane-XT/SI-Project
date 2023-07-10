@@ -28,9 +28,6 @@
 </head>
 
 <body>
-
-
-
 	<!-- Start wrapper-->
 	<div id="wrapper">
 
@@ -118,24 +115,14 @@
 				<p class="text-warning mb-0">Already have an account? <a href="<?php echo base_url("Login"); ?>"> Sign In here</a></p>
 			</div>
 		</div>
-
-
-
-
 	</div><!--wrapper-->
-
 	<!-- Bootstrap core JavaScript-->
 	<script src="<?php echo base_url('assets/js/jquery.min.js'); ?>"></script>
 	<script src="<?php echo base_url('assets/js/popper.min.js'); ?>"></script>
 	<script src="<?php echo base_url('assets/js/bootstrap.min.js'); ?>"></script>
-
 	<!-- sidebar-menu js -->
 	<script src="<?php echo base_url('assets/js/sidebar-menu.js'); ?>"></script>
-
 	<!-- Custom scripts -->
 	<script src="<?php echo base_url('assets/js/app-script.js'); ?>"></script>
-
-
 </body>
-
 </html>
