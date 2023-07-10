@@ -49,16 +49,4 @@ class Users_model extends CI_Model
         $this->db->where('id', $id);
         $this->db->delete('utilisateur');
     }
-
-    public function add_profil($id, $genre, $vola, $poids, $taille)
-    {
-        $this->db->where('id', $id);
-        $data = array(
-            'genre' => $genre,
-            'vola' => $vola,
-            'poids' => $poids,
-            'taille' => $taille
-        );
-        $this->db->update('utilisateur', $data);
-    }
 }
