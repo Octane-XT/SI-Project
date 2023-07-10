@@ -9,9 +9,6 @@
   </head>
 <!-- Start wrapper-->
 <div id="wrapper">
- 
-    
-  
   <div class="clearfix"></div>
       
     <div class="content-wrapper">
@@ -24,38 +21,38 @@
           <div class="row row-group m-0">
               <div class="col-12 col-lg-6 col-xl-3 border-light">
                   <div class="card-body">
-                    <h5 class="text-white mb-0">9526 <span class="float-right"><i class="fa fa-shopping-cart"></i></span></h5>
+                    <h5 class="text-white mb-0"><?php echo $total_petit_dejeuner;?> <span class="float-right"><i class="fa fa-shopping-cart"></i></span></h5>
                       <div class="progress my-3" style="height:3px;">
                          <div class="progress-bar" style="width:55%"></div>
                       </div>
-                    <p class="mb-0 text-white small-font">Total Orders <span class="float-right">+4.2% <i class="zmdi zmdi-long-arrow-up"></i></span></p>
+                    <p class="mb-0 text-white small-font">Total Petit dejeuner <span class="float-right"><?php echo $total_petit_dejeuner;?>%<i class="zmdi zmdi-long-arrow-up"></i></span></p>
                   </div>
               </div>
               <div class="col-12 col-lg-6 col-xl-3 border-light">
                   <div class="card-body">
-                    <h5 class="text-white mb-0">8323 <span class="float-right"><i class="fa fa-usd"></i></span></h5>
+                    <h5 class="text-white mb-0"><?php echo $total_dejeuner;?><span class="float-right"><i class="fa fa-usd"></i></span></h5>
                       <div class="progress my-3" style="height:3px;">
                          <div class="progress-bar" style="width:55%"></div>
                       </div>
-                    <p class="mb-0 text-white small-font">Total Revenue <span class="float-right">+1.2% <i class="zmdi zmdi-long-arrow-up"></i></span></p>
+                    <p class="mb-0 text-white small-font">Total Dejeuner <span class="float-right"><?php echo $total_dejeuner_pour;?>% <i class="zmdi zmdi-long-arrow-up"></i></span></p>
                   </div>
               </div>
               <div class="col-12 col-lg-6 col-xl-3 border-light">
                   <div class="card-body">
-                    <h5 class="text-white mb-0">6200 <span class="float-right"><i class="fa fa-eye"></i></span></h5>
+                    <h5 class="text-white mb-0"><?php echo $total_gouter;?> <span class="float-right"><i class="fa fa-eye"></i></span></h5>
                       <div class="progress my-3" style="height:3px;">
                          <div class="progress-bar" style="width:55%"></div>
                       </div>
-                    <p class="mb-0 text-white small-font">Visitors <span class="float-right">+5.2% <i class="zmdi zmdi-long-arrow-up"></i></span></p>
+                    <p class="mb-0 text-white small-font">Total Collation <span class="float-right"><?php echo $total_gouter_pour;?>% <i class="zmdi zmdi-long-arrow-up"></i></span></p>
                   </div>
               </div>
               <div class="col-12 col-lg-6 col-xl-3 border-light">
                   <div class="card-body">
-                    <h5 class="text-white mb-0">5630 <span class="float-right"><i class="fa fa-envira"></i></span></h5>
+                    <h5 class="text-white mb-0"><?php echo $total_diner;?> <span class="float-right"><i class="fa fa-envira"></i></span></h5>
                       <div class="progress my-3" style="height:3px;">
                          <div class="progress-bar" style="width:55%"></div>
                       </div>
-                    <p class="mb-0 text-white small-font">Messages <span class="float-right">+2.2% <i class="zmdi zmdi-long-arrow-up"></i></span></p>
+                    <p class="mb-0 text-white small-font">Total Diner <span class="float-right"><?php echo $total_diner_pour;?>%<i class="zmdi zmdi-long-arrow-up"></i></span></p>
                   </div>
               </div>
           </div>
@@ -94,20 +91,20 @@
            <div class="row m-0 row-group text-center border-top border-light-3">
              <div class="col-12 col-lg-4">
                <div class="p-3">
-                 <h5 class="mb-0">45.87M</h5>
-                 <small class="mb-0">Overall Visitor <span> <i class="fa fa-arrow-up"></i> 2.43%</span></small>
+                 <h5 class="mb-0"><?php echo $abonnement_total;?></h5>
+                 <small class="mb-0">Total Abonnement </small>
                </div>
              </div>
              <div class="col-12 col-lg-4">
                <div class="p-3">
-                 <h5 class="mb-0">15:48</h5>
-                 <small class="mb-0">Visitor Duration <span> <i class="fa fa-arrow-up"></i> 12.65%</span></small>
+                 <h5 class="mb-0"><?php echo $users_total;?></h5>
+                 <small class="mb-0">Total utilisateurs</small>
                </div>
              </div>
              <div class="col-12 col-lg-4">
                <div class="p-3">
-                 <h5 class="mb-0">245.65</h5>
-                 <small class="mb-0">Pages/Visit <span> <i class="fa fa-arrow-up"></i> 5.62%</span></small>
+                 <h5 class="mb-0"><?php echo $abo_users;?></h5>
+                 <small class="mb-0">Moyenne d'abonnement par utilisateur <span> </small>
                </div>
              </div>
            </div>
@@ -117,7 +114,7 @@
   
        <div class="col-12 col-lg-4 col-xl-4">
           <div class="card">
-             <div class="card-header">Weekly sales
+             <div class="card-header">Abonnement par regime
                <div class="card-action">
                <div class="dropdown">
                <a href="javascript:void();" class="dropdown-toggle dropdown-toggle-nocaret" data-toggle="dropdown">
@@ -141,26 +138,13 @@
              <div class="table-responsive">
                <table class="table align-items-center">
                  <tbody>
+                  <?php for($i =0 ;$i < count($regimes);$i++){ ?>
                    <tr>
-                     <td><i class="fa fa-circle text-white mr-2"></i> Direct</td>
+                     <td><i class="fa fa-circle text-white mr-2"></i> <?php echo $regimes[$i];?></td>
                      <td>$5856</td>
                      <td>+55%</td>
                    </tr>
-                   <tr>
-                     <td><i class="fa fa-circle text-light-1 mr-2"></i>Affiliate</td>
-                     <td>$2602</td>
-                     <td>+25%</td>
-                   </tr>
-                   <tr>
-                     <td><i class="fa fa-circle text-light-2 mr-2"></i>E-mail</td>
-                     <td>$1802</td>
-                     <td>+15%</td>
-                   </tr>
-                   <tr>
-                     <td><i class="fa fa-circle text-light-3 mr-2"></i>Other</td>
-                     <td>$1105</td>
-                     <td>+5%</td>
-                   </tr>
+                  <?php } ?>
                  </tbody>
                </table>
              </div>
@@ -298,4 +282,12 @@
   <script src="<?php echo base_url('assets/plugins/Chart.js/Chart.min.js');?>"></script>
  
   <!-- Index js -->
-  <script src="<?php echo base_url('assets/js/index.js');?>"></script>
+  <script src="<?php echo base_url('assets/js/index.js');?>">
+
+</script>
+<script>
+  <?php
+   $user = array();
+   ?>
+  chart(<?php echo json_encode($users); ?>,<?php echo json_encode($abonnement); ?>,<?php echo json_encode($regimes); ?>);
+</script>
