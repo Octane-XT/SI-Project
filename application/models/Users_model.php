@@ -50,7 +50,6 @@ class Users_model extends CI_Model
     public function add_profil($id, $genre, $vola, $poids, $taille)
     {
         $this->db->where('id', $id);
-
         $data = array(
             'genre' => $genre,
             'vola' => $vola,
