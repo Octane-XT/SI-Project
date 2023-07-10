@@ -9,6 +9,13 @@ class Regime_model extends CI_Model
         return $query->result();
     }
 
+    public function getRegimeByNomObjectif($nom, $objectif)
+    {
+        $this->db->where(['nom' => $nom, 'objectif' => $objectif]);
+        $query = $this->db->get('regime');
+        return $query->result();
+    }
+
     public function insert($nom, $objectif)
     {
         $data = array(
