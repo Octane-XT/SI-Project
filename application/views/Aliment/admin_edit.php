@@ -1,6 +1,6 @@
 <div class="card">
     <div class="card-body">
-        <div class="card-title">Modifier Aliment</div>
+        <div class="card-title">Modifier l'Aliment</div>
         <hr>
         <form method="POST" action="<?php echo base_url('Aliment/update'); ?>">
             <div class="form-group">
