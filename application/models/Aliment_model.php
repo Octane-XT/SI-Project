@@ -46,4 +46,14 @@ class Aliment_model extends CI_Model
         $this->db->where('id', $id);
         $this->db->delete('aliment');
     }
+
+    public function update($id, $id_type_aliment, $nom)
+    {
+        $this->db->where('id', $id);
+        $data = array(
+            'id_type_aliment' => $id_type_aliment,
+            'nom' => $nom
+        );
+        $this->db->update('aliment', $data);
+    }
 }

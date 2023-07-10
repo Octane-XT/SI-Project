@@ -109,5 +109,5 @@ CREATE TABLE IF NOT EXISTS utilisateur_code (
     id INT PRIMARY KEY AUTO_INCREMENT,
     id_utilisateur INT NOT NULL,
     id_code INT NOT NULL,
-    date_utilisation DATETIME DEFAULT CURRENT_TIMESTAMP
+    date_utilisation DATETIME DEFAULT NULL
 );
