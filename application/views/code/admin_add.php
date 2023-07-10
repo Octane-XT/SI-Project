@@ -2,7 +2,7 @@
     <div class="card-body">
         <div class="card-title">Code</div>
         <hr>
-        <form method="POST" action="<?php echo base_url('Code/insert'); ?>">
+        <form method="POST" action="<?php echo base_url('Admin_code/add'); ?>">
             <div class="form-group">
                 <label for="input-1">Code</label>
                 <div style="width: 300px;">

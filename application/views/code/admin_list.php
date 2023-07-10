@@ -32,8 +32,8 @@
                             <tr>
                                 <td><?php echo $code[$i]->nom; ?></td>
                                 <td><?php echo $code[$i]->argent; ?></td>
-                                <td><a href=""><button class="btn btn-info">Modifier</button></a></td>
-                                <td><a href=""><button class="btn btn-danger">Supprimer</button></a></td>
+                                <td><a href="<?php echo base_url('Admin_code/edit/'. $code[$i]->id);?>"><button class="btn btn-info">Modifier</button></a></td>
+                                <td><a href="<?php echo base_url('Admin_code/delete/'. $code[$i]->id);?>"><button class="btn btn-danger">Supprimer</button></a></td>
                                 <td>
                                     <?php if ($code[$i]->estutilise == 1) { ?>
                                         <a href="<?php echo base_url('Admin_code/validate/'. $code[$i]->id);?>"><button class="btn btn-danger">Valider</button></a>
