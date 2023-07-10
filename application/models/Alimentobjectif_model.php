@@ -13,14 +13,25 @@ class Alimentobjectif_model extends CI_Model
     // Récupération de tous les enregistrements
     public function get_all()
     {
-        return $this->db->get('aliment_objectif')->result();
+        $compte = array();
+        $request = "SELECT ao.id, ao.id_aliment, a.nom as aliment, ao.id_regime, r.nom as regime, ao.quantite, ao.poids, ao.prix FROM aliment_objectif ao JOIN aliment a ON ao.id_aliment = a.id JOIN regime r ON ao.id_regime = r.id";
+        $query = $this->db->query($request);
+        foreach ($query->result_array() as $row) {
+            $compte[] = $row;
+        }
+        return $compte;
     }
 
     // Récupération d'un enregistrement par son ID
     public function get_by_id($id)
     {
-        $this->db->where('id', $id);
-        return $this->db->get('aliment_objectif')->row();
+        $compte = array();
+        $request = "SELECT ao.id, ao.id_aliment, a.nom as aliment, ao.id_regime, r.nom as regime, ao.quantite, ao.poids, ao.prix FROM aliment_objectif ao JOIN aliment a ON ao.id_aliment = a.id JOIN regime r ON ao.id_regime = r.id where ao.id = %d";
+        $query = $this->db->query(sprintf($request,$id));
+        foreach ($query->result_array() as $row) {
+            $compte[] = $row;
+        }
+        return $compte;
     }
 
     // Mise à jour d'un enregistrement
