@@ -26,4 +26,10 @@ class Aliment extends CI_Controller
         $this->Aliment_model->insert($id_type_aliment, $nom);
         redirect('Aliment');
     }
+
+    public function delete($id)
+    {
+        $this->Aliment_model->delete($id);
+        redirect('Aliment');
+    }
 }
