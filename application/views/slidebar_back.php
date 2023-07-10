@@ -17,7 +17,7 @@
 <div id="sidebar-wrapper" data-simplebar="" data-simplebar-auto-hide="true">
   <div class="brand-logo">
     <a href="index.html">
-      <img src="assets/images/logo.jpg" class="logo-icon" alt="logo icon" style="width:50px;heigth:30px">
+      <img src="assets/images/logo.jpg" class="logo-icon" alt="logo icon" style="width:50px;height:30px;">
     </a>
   </div>
   <ul class="sidebar-menu do-nicescrol">
