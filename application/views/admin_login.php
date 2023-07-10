@@ -37,7 +37,7 @@
 						<img src="assets/images/logo.jpg" alt="logo icon" style="width:30px; heigth:30px">
 					</div>
 					<div class="card-title text-uppercase text-center py-3">Sign In</div>
-					<form method="POST" action="<?php echo base_url("Login/check"); ?>">
+					<form method="POST" action="<?php echo base_url("Admin/check"); ?>">
 						<div class="form-group">
 							<label for="exampleInputUsername" class="sr-only">Email</label>
 							<div class="position-relative has-icon-right">
@@ -68,17 +68,6 @@
 							</div>
 						</div>
 						<button type="submit" class="btn btn-light btn-block">Sign In</button>
-						<div class="text-center mt-3">Sign In With</div>
-
-						<div class="form-row mt-4">
-							<div class="form-group mb-0 col-6">
-								<button type="button" class="btn btn-light btn-block"><i class="fa fa-facebook-square"></i> Facebook</button>
-							</div>
-							<div class="form-group mb-0 col-6 text-right">
-								<button type="button" class="btn btn-light btn-block"><i class="fa fa-twitter-square"></i> Twitter</button>
-							</div>
-						</div>
-
 					</form>
 				</div>
 			</div>
