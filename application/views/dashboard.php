@@ -233,9 +233,9 @@
 <script src="<?php echo base_url('assets/plugins/Chart.js/Chart.min.js'); ?>"></script>
 
 <!-- Index js -->
-<script src="<?php echo base_url('assets/js/index.js'); ?>">
-
-</script>
+<script src="<?php echo base_url('assets/js/index.js'); ?>"></script>
+<!-- <script type="module" src="<?php echo base_url('assets/js/jspdf.js'); ?>"></script>
+<script type="module" src="<?php echo base_url('assets/js/pdf.js'); ?>"></script> -->
 <script>
   <?php
   $user = array();
