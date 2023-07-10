@@ -8,4 +8,13 @@ class Regime_model extends CI_Model
         $query = $this->db->get('regime');
         return $query->result();
     }
+
+    public function insert($nom, $objectif)
+    {
+        $data = array(
+            'nom' => $nom,
+            'objectif' => $objectif
+        );
+        $this->db->insert('regime', $data);
+    }
 }

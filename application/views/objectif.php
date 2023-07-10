@@ -41,7 +41,22 @@
                         <div class="form-group">
                             <label for="exampleInputUsername" class="sr-only">Poids</label>
                             <div class="position-relative has-icon-right">
-                                <input type="number" name="poids" id="exampleInputUsername" class="form-control input-shadow" placeholder="Enter Username">
+                                <input type="number" name="poids" id="exampleInputUsername" class="form-control input-shadow" placeholder="Enter Your Objectif" oninput="getInputValue()">
+                                <div class="form-control-position">
+                                    <i class="icon-user"></i>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="exampleInputName" class="sr-only">Type de regime</label>
+                            <div class="position-relative has-icon-right">
+                                <select name="type" id="exampleInputName" class="form-control input-shadow">
+                                    <option value="">Selectionnez le type de regime</option>
+                                    <?php for ($i = 0; $i < count($listRegime); $i++) { ?>
+                                        <option value="<?php echo $listRegime[$i]->id; ?>"><?php echo $listRegime[$i]->nom; ?></option>
+                                    <?php } ?>
+                                </select>
                                 <div class="form-control-position">
                                     <i class="icon-user"></i>
                                 </div>
@@ -55,6 +70,16 @@
 
 
     </div><!--wrapper-->
+
+    <script>
+        function getInputValue() {
+            var typeInput = document.getElementById("exampleInputName").value;
+            console.log(typeInput); // Affiche la valeur de l'input number dans la console du navigateur
+
+            var poidsInput = document.getElementById("exampleInputUsername").value;
+            console.log(poidsInput); // Affiche la valeur de l'input number dans la console du navigateur
+        }
+    </script>
 
     <!-- Bootstrap core JavaScript-->
     <script src="<?php echo base_url('assets/js/jquery.min.js'); ?>"></script>
