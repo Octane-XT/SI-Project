@@ -75,8 +75,8 @@ CREATE TABLE IF NOT EXISTS abonnement (
     id_utilisateur INT NOT NULL,
     id_regime INT NOT NULL,
     poids_objectif DOUBLE,
-    datedebut DATE,
-    datefin DATE,
+    datedebut DATETIME DEFAULT CURRENT_TIMESTAMP,
+    datefin DATETIME,
     FOREIGN KEY (id_utilisateur) REFERENCES utilisateur(id),
     FOREIGN KEY (id_regime) REFERENCES regime(id)
 );
