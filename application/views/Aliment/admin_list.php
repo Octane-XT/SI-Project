@@ -28,26 +28,13 @@
                         </tr>
                     </thead>
                     <tbody>
-                        <tr>
-                            <td>Iphone 5</td>
-                            <td>03 Aug 2017</td>
-                            <td><a href=""><button class="btn btn-info">Modifier</button></a></td>
-                            <td><a href=""><button class="btn btn-danger">Supprimer</button></a></td>
-                        </tr>
-
-                        <tr>
-                            <td>Earphone GL</td>
-                            <td>03 Aug 2017</td>
-                            <td><a href=""><button class="btn btn-info">Modifier</button></a></td>
-                            <td><a href=""><button class="btn btn-danger">Supprimer</button></a></td>
-                        </tr>
-
-                        <tr>
-                            <td>HD Hand Camera</td>
-                            <td>03 Aug 2017</td>
-                            <td><a href=""><button class="btn btn-info">Modifier</button></a></td>
-                            <td><a href=""><button class="btn btn-danger">Supprimer</button></a></td>
-                        </tr>
+                        <?php for ($i = 0; $i < count($listAliment); $i++) { ?><tr>
+                                <td><?php echo $listAliment[$i]['nom']; ?></td>
+                                <td><?php echo $listAliment[$i]['typenom']; ?></td>
+                                <td><a href=""><button class="btn btn-info">Modifier</button></a></td>
+                                <td><a href=""><button class="btn btn-danger">Supprimer</button></a></td>
+                            </tr>
+                        <?php } ?>
                     </tbody>
                 </table>
             </div>
