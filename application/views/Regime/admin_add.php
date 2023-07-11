@@ -30,7 +30,7 @@
                         <div class="input-group">
                             <input type="number" name="quantitepetitdej[]" class="form-control" placeholder="Quantité" style="width: 70px;" data-parsley-required-if="#checkbox1-<?php echo $i; ?>:checked" min="1">
                             <input type="number" name="prixpetitdej[]" class="form-control" placeholder="Prix" style="width: 70px;" data-parsley-required-if="#checkbox1-<?php echo $i; ?>:checked" min="0">
-                            <input type="number" name="poidspetitdej[]" class="form-control" placeholder="Poids" style="width: 70px;" data-parsley-required-if="#checkbox1-<?php echo $i; ?>:checked" min="1">
+                            <input type="number" name="poidspetitdej[]" class="form-control" placeholder="Poids en g" style="width: 70px;" data-parsley-required-if="#checkbox1-<?php echo $i; ?>:checked" min="1">
                         </div>
                     </div>
                 <?php } ?>
@@ -46,7 +46,7 @@
                         <div class="input-group">
                             <input type="number" name="quantitegouter[]" class="form-control" placeholder="Quantité" style="width: 70px;" data-parsley-required-if="#checkbox2-<?php echo $i; ?>:checked" min="1">
                             <input type="number" name="prixgouter[]" class="form-control" placeholder="Prix" style="width: 70px;" data-parsley-required-if="#checkbox2-<?php echo $i; ?>:checked" min="0">
-                            <input type="number" name="poidsgouter[]" class="form-control" placeholder="Poids" style="width: 70px;" data-parsley-required-if="#checkbox2-<?php echo $i; ?>:checked" min="1">
+                            <input type="number" name="poidsgouter[]" class="form-control" placeholder="Poids en g" style="width: 70px;" data-parsley-required-if="#checkbox2-<?php echo $i; ?>:checked" min="1">
                         </div>
                     </div>
                 <?php } ?>
@@ -61,7 +61,7 @@
                         <div class="input-group">
                             <input type="number" name="quantitedejeuner[]" class="form-control" placeholder="Quantité" style="width: 70px;" data-parsley-required-if="#checkbox3-<?php echo $i; ?>:checked" min="1">
                             <input type="number" name="prixdejeuner[]" class="form-control" placeholder="Prix" style="width: 70px;" data-parsley-required-if="#checkbox3-<?php echo $i; ?>:checked" min="0">
-                            <input type="number" name="poidsdejeuner[]" class="form-control" placeholder="Poids" style="width: 70px;" data-parsley-required-if="#checkbox3-<?php echo $i; ?>:checked" min="1">
+                            <input type="number" name="poidsdejeuner[]" class="form-control" placeholder="Poids en g" style="width: 70px;" data-parsley-required-if="#checkbox3-<?php echo $i; ?>:checked" min="1">
                         </div>
                     </div>
                 <?php } ?>
@@ -76,7 +76,7 @@
                         <div class="input-group">
                             <input type="number" name="quantitediner[]" class="form-control" placeholder="Quantité" style="width: 70px;" data-parsley-required-if="#checkbox4-<?php echo $i; ?>:checked" min="1">
                             <input type="number" name="prixdiner[]" class="form-control" placeholder="Prix" style="width: 70px;" data-parsley-required-if="#checkbox4-<?php echo $i; ?>:checked" min="0">
-                            <input type="number" name="poidsdiner[]" class="form-control" placeholder="Poids" style="width: 70px;" data-parsley-required-if="#checkbox4-<?php echo $i; ?>:checked" min="1">
+                            <input type="number" name="poidsdiner[]" class="form-control" placeholder="Poids en g" style="width: 70px;" data-parsley-required-if="#checkbox4-<?php echo $i; ?>:checked" min="1">
                         </div>
                     </div>
                 <?php } ?>
@@ -91,7 +91,7 @@
                         <div class="input-group">
                             <input type="number" name="frequencesport[]" class="form-control" placeholder="Frequence" style="width: 70px;" data-parsley-required-if="#checkbox5-<?php echo $i; ?>:checked" min="1">
                             <input type="number" name="prixsport[]" class="form-control" placeholder="Prix" style="width: 70px;" data-parsley-required-if="#checkbox5-<?php echo $i; ?>:checked" min="0">
-                            <input type="number" name="poidssport[]" class="form-control" placeholder="Poids" style="width: 70px;" data-parsley-required-if="#checkbox5-<?php echo $i; ?>:checked" min="1">
+                            <input type="number" name="poidssport[]" class="form-control" placeholder="Poids en g" style="width: 70px;" data-parsley-required-if="#checkbox5-<?php echo $i; ?>:checked" min="1">
                         </div>
                     </div>
                 <?php } ?>
