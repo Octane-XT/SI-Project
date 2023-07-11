@@ -50,4 +50,12 @@ class Code_model extends CI_Model
         );
         $this->db->insert('utilisateur_code', $data);
     }
+
+    public function getusercodebyid($id)
+    {
+        $compte = array();
+        $request = "SELECT u.id AS utilisateur_id, u.nom AS utilisateur_nom, u.prenom AS utilisateur_prenom, c.id AS code_id, c.nom AS code_nom, c.argent AS code_argent, c.estutilise AS code_estutilise FROM utilisateur u JOIN utilisateur_code uc ON u.id = uc.id_utilisateur JOIN code c ON uc.id_code = c.id where c.id =%d";
+        $query = $this->db->query(sprintf($request, $id));
+        return $query->result();
+    }
 }
