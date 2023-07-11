@@ -151,6 +151,9 @@ class Objectif extends CI_Controller
             if($this->Users_model->GetIsGold($_SESSION['iduser']) == 1)
             {
                 $planning['total'] = $planning['total'] - ($planning['total'] * (15 / 100));
+                $planning['promo'] = 15;
+            }else{
+                $planning['promo'] = 0;
             }
             $user = $this->Users_model->getUserById($_SESSION['iduser']);
 
@@ -171,7 +174,7 @@ class Objectif extends CI_Controller
     {
         $datas = json_decode($this->input->post('data'));
         // echo intval($datas->poids_but);
-        $abonnement = $this->Abonnement_model->getAbonnementByData($_SESSION['iduser'], intval($datas->regime), intval($datas->poids_but), count(get_object_vars($datas)) - 3);
+        $abonnement = $this->Abonnement_model->getAbonnementByData($_SESSION['iduser'], intval($datas->regime), intval($datas->poids_but), count(get_object_vars($datas)) -4);
         for ($i = 0; $i < count(get_object_vars($datas)) - 3; $i++) {
             $petitDejeuner = $datas->$i->petit_dejeuner;
             $dejeuner = $datas->$i->dejeuner;

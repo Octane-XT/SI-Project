@@ -45,7 +45,7 @@
                         </thead>
                         <tbody>
                             <?php
-                            for ($i = 0; $i < count($planning) - 3; $i++) { ?>
+                            for ($i = 0; $i < count($planning) - 4; $i++) { ?>
                                 <tr>
                                     <td><?php echo $planning[$i]['jour']; ?></td>
                                     <td><?php echo $planning[$i]['petit_dejeuner']['nom']; ?></td>
@@ -74,6 +74,7 @@
 
                             <form action="<?php echo base_url('Pdf_ctrl/exporting_pdf'); ?>" method="post">
                                 <input type="hidden" name="data" value="<?php echo htmlspecialchars(json_encode($planning)); ?>">
+                             
                                 <td><button type="submit" class="btn btn-light btn-block">Export PDF</button>
                             </form>
                             </td>

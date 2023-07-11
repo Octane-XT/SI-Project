@@ -15,13 +15,15 @@ class Pdf_ctrl extends CI_Controller {
 
     public function exporting_pdf(){
         $datas = json_decode($this->input->post('data'));
+        
         // var_dump($datas);
                 date_default_timezone_set('Europe/Moscow') ;
         $user = $this->Users_model->getUserById($this->session->userdata('iduser'));
                 $invoiceDate = date('Y-m-d');
                 $customerName = $user->nom;
                 $totalAmount = $datas->total;
-
+                $promo =$datas->promo;
+                
                 
        // Créer le contenu de la facture
 // Créer le contenu de la facture
@@ -123,6 +125,10 @@ $content .= "
             <td colspan='2'><strong>Total :</strong></td>
             <td style='border: 1px solid #000;'>$totalAmount Ar</td>
         </tr>
+        <tr>
+        <td colspan='2'><strong>Promotion :</strong></td>
+        <td style='border: 1px solid #000;'>$promo Ar</td>
+    </tr>
         <br/> <br/> <br/> <br/> <br/> <br/>
         <tr>
         <td colspan='2'><strong> $customerName</strong></td>
