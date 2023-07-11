@@ -31,7 +31,9 @@ class Users_model extends CI_Model
             'date_naissance' => $this->input->post('date_naissance'),
             'email' => $this->input->post('email'),
             'password' => $this->input->post('password'),
-            'genre' => $this->input->post('genre')
+            'genre' => $this->input->post('genre'),
+            'poids' => $this->input->post('poids'),
+            'taille' => $this->input->post('taille')
         );
         $this->db->insert('utilisateur', $data);
     }
@@ -95,21 +97,34 @@ class Users_model extends CI_Model
         }
     }
 
-    function updateprofil($id, $poids, $taille)
+    public function activergold($userId, $vola)
     {
+        $this->updateVola($userId, $vola);
         $data = array(
-            'poids' => $poids,
-            'taille' => $taille
+            'isgold' => 1
         );
 
-        $this->db->where('id', $id);
+        $this->db->where('id', $userId);
         $this->db->update('utilisateur', $data);
 
-        // Check if the update was successful
-        if ($this->db->affected_rows() > 0) {
-            return true; // Update successful
+        return $this->db->affected_rows() > 0;
+    }
+
+    public function getIsGold($userId)
+    {
+        $this->db->select('isgold');
+        $this->db->from('utilisateur');
+        $this->db->where('id', $userId);
+        $query = $this->db->get();
+
+        if ($query->num_rows() > 0) {
+            $row = $query->row();
+            return $row->isgold;
         } else {
-            return false; // Update failed
+            return false;
         }
     }
+
+
+
 }
