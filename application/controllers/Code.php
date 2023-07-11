@@ -6,6 +6,7 @@ class Code extends CI_Controller
     public function __construct()
     {
         parent::__construct();
+        $this->load->model('Users_model');
         $this->load->model('Code_model');
     }
 
@@ -19,7 +20,9 @@ class Code extends CI_Controller
             $data['error'] = $this->input->get('message');
         }
         $data["code"] = $this->Code_model->getAllCode();
-        $this->load->view('header');
+        $data['user'] = $this->Users_model->getUserById($_SESSION['iduser']);
+        $this->load->view('header_front', $data);
+        $this->load->view('slidebar');
         $this->load->view('code/add', $data);
         $this->load->view('code/list',$data);
         $this->load->view('footer');
@@ -29,7 +32,9 @@ class Code extends CI_Controller
         if (!$this->session->userdata('iduser')) {
             redirect('login');
         }
-        $this->load->view('header');
+        $data['user'] = $this->Users_model->getUserById($_SESSION['iduser']);
+        $this->load->view('header_front', $data);
+        $this->load->view('slidebar');
         $this->load->view('code/add');
         $this->load->view('code/list');
         $this->load->view('footer');

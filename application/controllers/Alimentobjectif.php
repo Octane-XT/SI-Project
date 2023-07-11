@@ -7,13 +7,24 @@ class Alimentobjectif extends CI_Controller
     {
         parent::__construct();
         $this->load->model('Alimentobjectif_model');
+        $this->load->model('Users_model');
     }
 
     public function index()
     {
+        $message = $this->input->get('message');
+        if (isset($message) && $message !== "") {
+            $data['error'] = $this->input->get('message');
+        }
+        $this->load->model('Aliment_model');
+        $this->load->model('Regime_model');
+        $data['aliment'] = $this->Aliment_model->getAllAliment();
+        $data['regime'] = $this->Regime_model->getAllRegime();
         $data['aliment_objectifs'] = $this->Alimentobjectif_model->get_all();
-        $this->load->view('header');
+        $data['user'] = $this->Users_model->getUserById($_SESSION['iduseradmin']);
+        $this->load->view('header_back', $data);
         $this->load->view('slidebar_back');
+        $this->load->view('alimentobjectif/add', $data);
         $this->load->view('alimentobjectif/list', $data);
         $this->load->view('footer');
     }
@@ -40,7 +51,7 @@ class Alimentobjectif extends CI_Controller
             $this->Alimentobjectif_model->insert($data);
             redirect('alimentobjectif');
         }
-        redirect('alimentobjectif/create');
+        redirect('alimentobjectif?message=valeur negatif non autorise');
     }
         
 

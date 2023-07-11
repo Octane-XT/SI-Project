@@ -31,9 +31,7 @@ class Users_model extends CI_Model
             'date_naissance' => $this->input->post('date_naissance'),
             'email' => $this->input->post('email'),
             'password' => $this->input->post('password'),
-            'genre' => $this->input->post('genre'),
-            'poids' => $this->input->post('poids'),
-            'taille' => $this->input->post('taille')
+            'genre' => $this->input->post('genre')
         );
         $this->db->insert('utilisateur', $data);
     }
@@ -97,5 +95,21 @@ class Users_model extends CI_Model
         }
     }
 
+    function updateprofil($id, $poids, $taille)
+    {
+        $data = array(
+            'poids' => $poids,
+            'taille' => $taille
+        );
 
+        $this->db->where('id', $id);
+        $this->db->update('utilisateur', $data);
+
+        // Check if the update was successful
+        if ($this->db->affected_rows() > 0) {
+            return true; // Update successful
+        } else {
+            return false; // Update failed
+        }
+    }
 }

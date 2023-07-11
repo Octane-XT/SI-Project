@@ -103,27 +103,6 @@
 							</div>
 						</div>
 
-
-						<div class="form-group">
-							<label for="exampleInputName" class="sr-only">Poids</label>
-							<div class="position-relative has-icon-right">
-								<input type="number" name="poids" id="exampleInputName" class="form-control input-shadow" placeholder="Enter Your Weight">
-								<div class="form-control-position">
-									<i class="icon-user"></i>
-								</div>
-							</div>
-						</div>
-
-						<div class="form-group">
-							<label for="exampleInputName" class="sr-only">Taille</label>
-							<div class="position-relative has-icon-right">
-								<input type="number" name="taille" id="exampleInputName" class="form-control input-shadow" placeholder="Enter Your Height">
-								<div class="form-control-position">
-									<i class="icon-user"></i>
-								</div>
-							</div>
-						</div>
-
 						<div class="form-group">
 							<div class="icheck-material-white">
 								<input type="checkbox" id="user-checkbox" checked="" />

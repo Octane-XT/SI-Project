@@ -51,9 +51,9 @@ insert into code values (default, 'IF9823JFUC', 70000, 0);
 insert into motif values (default, 'achat abonnement');
 insert into motif values (default, 'achat code');
 
-insert into regime values (default, 'augmentation rapide du poids', 1);
-insert into regime values (default, 'augmentation moyenne du poids', 1);
-insert into regime values (default, 'augmentation lente du poids', 1);
-insert into regime values (default, 'diminution rapide du poids', -1);
-insert into regime values (default, 'diminution moyenne du poids', -1);
-insert into regime values (default, 'diminution lente du poids', -1);
+insert into regime values (default, 'augmentation rapide du poids', 1, default, default, default);
+insert into regime values (default, 'augmentation moyenne du poids', 1, default, default, default);
+insert into regime values (default, 'augmentation lente du poids', 1, default, default, default);
+insert into regime values (default, 'diminution rapide du poids', -1, default, default, default);
+insert into regime values (default, 'diminution moyenne du poids', -1, default, default, default);
+insert into regime values (default, 'diminution lente du poids', -1, default, default, default);
