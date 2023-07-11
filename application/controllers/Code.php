@@ -14,6 +14,9 @@ class Code extends CI_Controller
         if (!$this->session->userdata('iduser')) {
             redirect('login');
         }
+        if (isset($message) && $message !== "") {
+            $data['error'] = $this->input->get('message');
+        }
         $data["code"] = $this->Code_model->getAllCode();
         $this->load->view('header');
         $this->load->view('code/add');
