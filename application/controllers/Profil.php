@@ -22,6 +22,7 @@ class Profil extends CI_Controller
         $poids = $this->input->post('poids');
         $taille = $this->input->post('taille');
         $this->Users_model->updateprofil($_SESSION['iduser'], $poids, $taille);
-        redirect('Profil');
+        $imc = $poids/($taille*0,.01*$taille*0,.01);
+        redirect('Profil?imc=' . $imc);
 	}
 }
