@@ -90,8 +90,6 @@ if (isset($error)) {
                 <label for="exampleInputUsername" class="sr-only">Objectif</label>
                 <div class="position-relative has-icon-right">
                     <form action="<?php echo base_url("Objectif/regime"); ?>" method="post">
-                   
-                    
                         <input type="number" name="poids" id="exampleInputUsername" class="form-control input-shadow" placeholder="Enter Your Objectif">
                         <div class="form-control-position">
                             <i class="icon-user"></i>
