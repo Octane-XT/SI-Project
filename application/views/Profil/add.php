@@ -28,9 +28,11 @@
                 <button type="submit" class="btn btn-light btn-block">Valider</button>
 
 
-
-                <?php if($this->input->get('imc') !=null){?>
-                    <h6><p>Votre imc est de<?php echo $this->input->get('imc'); ?></p></h6>
+                <br>
+                <?php if ($this->input->get('imc') != null) { ?>
+                    <h6>
+                        <p>Votre IMC est de <?php echo $this->input->get('imc'); ?></p>
+                    </h6>
                 <?php } ?>
             </form>
         </div>

@@ -97,6 +97,22 @@ class Users_model extends CI_Model
         }
     }
 
+    function updateprofil($id, $poids, $taille)
+    {
+        $data = array(
+            'poids' => $poids,
+            'taille' => $taille
+        );
+        $this->db->where('id', $id);
+        $this->db->update('utilisateur', $data);
+        // Check if the update was successful
+        if ($this->db->affected_rows() > 0) {
+            return true; // Update successful
+        } else {
+            return false; // Update failed
+        }
+    }
+
     public function activergold($userId, $vola)
     {
         $this->updateVola($userId, $vola);
@@ -124,7 +140,4 @@ class Users_model extends CI_Model
             return false;
         }
     }
-
-
-
 }
