@@ -7,17 +7,34 @@ class Admin_code extends CI_Controller
     {
         parent::__construct();
         $this->load->model('Code_model');
+<<<<<<< Updated upstream
         $this->load->model('Users_model');
+=======
+        if (!$this->session->userdata('iduseradmin')) {
+            redirect('Login');
+        }
+>>>>>>> Stashed changes
     }
 
     public function index()
     {
         $data['user'] = $this->Users_model->getUserById($_SESSION['iduseradmin']);
         $data['code'] = $this->Code_model->getAllCode();
+<<<<<<< Updated upstream
         $this->load->view('header_back', $data);
         $this->load->view('slidebar_back');
         $this->load->view('code/admin_add');
         $this->load->view('code/admin_list', $data);
+=======
+        $message = $this->input->get('message');
+        if (isset($message) && $message !== "") {
+            $data['error'] = $this->input->get('message');
+        }
+        $this->load->view('header');
+        $this->load->view('slidebar_back');
+        $this->load->view('code/admin_add',$data);
+        $this->load->view('code/admin_list',$data);
+>>>>>>> Stashed changes
         $this->load->view('footer');
     }
 
@@ -26,6 +43,9 @@ class Admin_code extends CI_Controller
 
         if ($this->input->post('argent') < 0) {
             redirect('Admin_code?message=Argent negatif non autorise');
+        }
+        if ($this->input->post('nom') == '') {
+            redirect('Admin_code?message=Code non autorise');
         }
         $data = array(
             'code' => $this->input->post('nom'),

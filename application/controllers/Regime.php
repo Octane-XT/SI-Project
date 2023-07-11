@@ -16,6 +16,10 @@ class Regime extends CI_Controller
 
     public function index()
     {
+        $message = $this->input->get('message');
+        if (isset($message) && $message !== "") {
+            $data['error'] = $this->input->get('message');
+        }
         $data['listRegime'] = $this->Regime_model->getAllRegime();
         $data['listPetitDejeuner'] = $this->Aliment_model->getAlimentByType(1);
         $data['listGouter'] = $this->Aliment_model->getAlimentByType(2);
@@ -32,6 +36,9 @@ class Regime extends CI_Controller
 
     public function add()
     {
+        if ($this->input->post('type') != 1 || $this->input->post('type') != -1) {
+            redirect('Regime?message=type de regime non valide');
+        }
         $nomregime = $this->input->post('nom');
         $typeregime = $this->input->post('type');
 
