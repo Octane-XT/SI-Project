@@ -237,10 +237,10 @@ if (isset($error)) {
 
         if (sum > 100) {
             errorMessage.style.display = 'block';
-            form.addEventListener('submit', preventSubmit);
+            // form.addEventListener('submit', preventSubmit);
         } else {
             errorMessage.style.display = 'none';
-            form.removeEventListener('submit', preventSubmit);
+            // form.removeEventListener('submit', preventSubmit);
         }
 
         function preventSubmit(event) {

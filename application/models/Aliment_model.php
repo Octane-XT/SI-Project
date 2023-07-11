@@ -43,8 +43,12 @@ class Aliment_model extends CI_Model
 
     public function delete($id)
     {
-        $this->db->where('id', $id);
-        $this->db->delete('aliment');
+        if ($this->db->where('id_aliment', $id)->count_all_results('aliment_objectif') > 0) {
+            return false;
+        }
+
+        $this->db->where('id', $id)->delete('aliment');
+        return true;
     }
 
     public function update($id, $id_type_aliment, $nom)

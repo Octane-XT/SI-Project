@@ -22,6 +22,16 @@ class Code_model extends CI_Model
         $this->db->update('code', $data);
     }
 
+    public function update1($id, $nom, $argent)
+    {
+        $this->db->where('id', $id);
+        $data = array(
+            'nom' => $nom,
+            'argent' => $argent
+        );
+        $this->db->update('code', $data);
+    }
+
     public function getid($id){
         $this->db->where('nom', $id);
         $query = $this->db->get('code');
@@ -51,6 +61,11 @@ class Code_model extends CI_Model
         $this->db->insert('utilisateur_code', $data);
     }
 
+    public function delete($id)
+    {
+        $this->db->where('id', $id);
+        $this->db->delete('code');
+    }
     public function getusercodebyid($id)
     {
         $compte = array();
@@ -58,4 +73,6 @@ class Code_model extends CI_Model
         $query = $this->db->query(sprintf($request, $id));
         return $query->result();
     }
+
+
 }

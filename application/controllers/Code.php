@@ -50,6 +50,5 @@ class Code extends CI_Controller
             $this->Code_model->insert_user($this->session->userdata('iduser'), $id[0]->id);
             redirect('Code');
         }
-        
     }
 }

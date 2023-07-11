@@ -34,11 +34,11 @@ class Admin_code extends CI_Controller
         if ($this->input->post('argent') < 0) {
             redirect('Admin_code?message=Argent negatif non autorise');
         }
-        if ($this->input->post('nom') == '') {
+        if ($this->input->post('code') == '') {
             redirect('Admin_code?message=Code non autorise');
         }
         $data = array(
-            'code' => $this->input->post('nom'),
+            'nom' => $this->input->post('code'),
             'argent' => $this->input->post('argent')
         );
         $this->Code_model->insert($data);
@@ -52,6 +52,15 @@ class Admin_code extends CI_Controller
         $this->load->view('header_back', $data);
         $this->load->view('code/admin_edit', $data);
         $this->load->view('footer');
+    }
+
+    public function update()
+    {
+        $id = $this->input->post('id');
+        $argent = $this->input->post('argent');
+        $nom = $this->input->post('code');
+        $this->Code_model->update1($id, $nom, $argent);
+        redirect('Admin_code');
     }
 
     public function delete($id)

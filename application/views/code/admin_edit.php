@@ -2,8 +2,8 @@
     <div class="card-body">
         <div class="card-title">Code</div>
         <hr>
-        <form method="POST" action="<?php echo base_url('Code/insert'); ?>">
-            <input type="hidden" value="<?php echo $code[0]->id; ?>">
+        <form method="POST" action="<?php echo base_url('Admin_code/update'); ?>">
+            <input type="hidden" name="id" value="<?php echo $code[0]->id; ?>">
             <div class="form-group">
                 <label for="input-1">Code</label>
                 <div style="width: 300px;">

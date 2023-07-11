@@ -49,7 +49,12 @@ class Sport extends CI_Controller
 
     public function delete($id)
     {
-        $this->Sport_model->delete($id);
-        redirect('Sport');
+        try {
+            $this->Sport_model->delete($id);
+            redirect('Sport');
+        } catch (Exception $e) {
+            // Gestion de l'exception
+            redirect('Sport');
+        }
     }
 }

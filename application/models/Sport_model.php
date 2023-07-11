@@ -9,6 +9,19 @@ class Sport_model extends CI_Model
         return $query->result();
     }
 
+    public function getSportInObjectif($id)
+    {
+        $this->db->where('id', $id);
+        $query = $this->db->get('sport_objectif');
+
+
+        if (count($query->result()) < 1) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+
     public function insert($nom)
     {
         $data = array(
@@ -19,8 +32,13 @@ class Sport_model extends CI_Model
 
     public function delete($id)
     {
-        $this->db->where('id', $id);
-        $this->db->delete('sport');
+        if ($this->db->where('id_sport', $id)->count_all_results('sport_objectif') > 0) {
+            return false;
+        }
+
+        // Supprimer l'enregistrement
+        $this->db->where('id', $id)->delete('sport');
+        return true;
     }
 
     public function update($id, $nom)

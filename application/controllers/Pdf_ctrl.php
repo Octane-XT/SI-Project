@@ -44,7 +44,7 @@ $content = "
     <tbody>";
 
 // Boucler sur les produits et remplir le tableau dans la facture
-for ($i = 0; $i < count(get_object_vars($datas)) - 1; $i++) {
+for ($i = 0; $i < count(get_object_vars($datas)) - 4; $i++) {
     $petitDejeuner = $datas->$i->petit_dejeuner;
     $dejeuner = $datas->$i->dejeuner;
     $gouter = $datas->$i->gouter;
@@ -105,7 +105,7 @@ for ($i = 0; $i < count(get_object_vars($datas)) - 1; $i++) {
 
     if ($sport->nom !== "rien") {
         $description = $sport->nom;
-        $quantite = $sport->quantite;
+        $quantite = $sport->frequence;
         $prix = $sport->prix;
 
         $content .= "
@@ -127,7 +127,7 @@ $content .= "
         </tr>
         <tr>
         <td colspan='2'><strong>Promotion :</strong></td>
-        <td style='border: 1px solid #000;'>$promo Ar</td>
+        <td style='border: 1px solid #000;'>$promo %</td>
     </tr>
         <br/> <br/> <br/> <br/> <br/> <br/>
         <tr>
