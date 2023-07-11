@@ -60,9 +60,30 @@ class Dashboard extends CI_Controller
         $this->load->view('header');
         $this->load->view('slidebar_back');
         $this->load->view('dashboard',$data);
+        $this->table();
+        $this->load->view('footer');
+
        
-      
 
 
+    }
+    public function table(){
+        $data['user'] = $this->Users_model->get_user();
+        $data['regime'] = $this->Regime_model->getAllRegime();
+        $data['count'] =array();
+        for ($i=0; $i <count($data['user']); $i++) { 
+           for ($u=0; $u <count($data['regime']) ; $u++) { 
+        $data['count'][$i][$u]= $this->Abonnement_model-> getAbonnementUtilisateur($data['user'][$i]->id,$data['regime'][$u]->id);
+           }
+        }
+        for ($u=0; $u <count($data['regime']) ; $u++) { 
+            $count = 0;
+            for ($i=0; $i <3 ; $i++) { 
+                $data['count_sexe'][$u][$i]= $this->Abonnement_model-> getAbonnementSexe($i,$data['regime'][$u]->id);
+                $count = $count +$this->Abonnement_model-> getAbonnementSexe($i,$data['regime'][$u]->id);
+            }
+            $data['count_sexe'][$u]['count'] = $count;
+               }
+        $this->load->view('tables',$data);
     }
 }
