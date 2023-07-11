@@ -7,6 +7,7 @@ class Regime extends CI_Controller
     {
         parent::__construct();
         $this->load->model('Regime_model');
+        $this->load->model('Users_model');
         $this->load->model('Aliment_model');
         $this->load->model('Sport_model');
         $this->load->model('Alimentobjectif_model');
@@ -22,7 +23,8 @@ class Regime extends CI_Controller
         $data['listDiner'] = $this->Aliment_model->getAlimentByType(4);
         $data['listSport'] = $this->Sport_model->getAllSport();
 
-        $this->load->view('header');
+        $data['user'] = $this->Users_model->getUserById($_SESSION['iduseradmin']);
+        $this->load->view('header_back', $data);
         $this->load->view('slidebar_back');
         $this->load->view('Regime/admin_add', $data);
         $this->load->view('footer');
@@ -204,7 +206,8 @@ class Regime extends CI_Controller
     {
         $data['id'] = $id;
         $data['listTypeRegime'] = $this->Regime_model->getAllTypeRegime();
-        $this->load->view('header');
+        $data['user'] = $this->Users_model->getUserById($_SESSION['iduseradmin']);
+        $this->load->view('header_back', $data);
         $this->load->view('slidebar_back');
         $this->load->view('Regime/admin_edit', $data);
         $this->load->view('footer');

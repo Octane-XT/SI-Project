@@ -7,23 +7,24 @@ class Admin_code extends CI_Controller
     {
         parent::__construct();
         $this->load->model('Code_model');
-        
+        $this->load->model('Users_model');
     }
 
     public function index()
     {
+        $data['user'] = $this->Users_model->getUserById($_SESSION['iduseradmin']);
         $data['code'] = $this->Code_model->getAllCode();
-        $this->load->view('header');
+        $this->load->view('header_back', $data);
         $this->load->view('slidebar_back');
         $this->load->view('code/admin_add');
-        $this->load->view('code/admin_list',$data);
+        $this->load->view('code/admin_list', $data);
         $this->load->view('footer');
     }
 
     public function add()
     {
-        
-        if($this->input->post('argent')<0){
+
+        if ($this->input->post('argent') < 0) {
             redirect('Admin_code?message=Argent negatif non autorise');
         }
         $data = array(
@@ -37,7 +38,8 @@ class Admin_code extends CI_Controller
     public function edit($id)
     {
         $data['code'] = $this->Code_model->getcodebyid($id);
-        $this->load->view('header');
+        $data['user'] = $this->Users_model->getUserById($_SESSION['iduseradmin']);
+        $this->load->view('header_back', $data);
         $this->load->view('code/admin_edit', $data);
         $this->load->view('footer');
     }
@@ -48,7 +50,8 @@ class Admin_code extends CI_Controller
         redirect('Admin_code');
     }
 
-    public function validate($id){
+    public function validate($id)
+    {
         $this->Code_model->update_admin($id);
         $data = $this->Code_model->getusercodebyid($id);
         $this->load->model('Users_model');

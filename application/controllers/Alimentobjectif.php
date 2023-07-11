@@ -7,12 +7,14 @@ class Alimentobjectif extends CI_Controller
     {
         parent::__construct();
         $this->load->model('Alimentobjectif_model');
+        $this->load->model('Users_model');
     }
 
     public function index()
     {
         $data['aliment_objectifs'] = $this->Alimentobjectif_model->get_all();
-        $this->load->view('header');
+        $data['user'] = $this->Users_model->getUserById($_SESSION['iduseradmin']);
+        $this->load->view('header_back', $data);
         $this->load->view('slidebar_back');
         $this->load->view('alimentobjectif/list', $data);
         $this->load->view('footer');

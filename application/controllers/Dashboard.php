@@ -57,7 +57,8 @@ class Dashboard extends CI_Controller
             $data['abonnement_total'] = $data['abonnement_total'] + intval($this->Abonnement_model->getByMonth($i));
         }
         $data['abo_users']  = $data['abonnement_total'] / $data['users_total']  ;
-        $this->load->view('header');
+        $data['user'] = $this->Users_model->getUserById($_SESSION['iduseradmin']);
+        $this->load->view('header_back', $data);
         $this->load->view('slidebar_back');
         $this->load->view('dashboard',$data);
        

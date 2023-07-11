@@ -23,7 +23,7 @@ class Objectif extends CI_Controller
         }
         $data['listRegime'] = $this->Regime_model->getAllRegime();
         $data['user'] = $this->Users_model->getUserById($_SESSION['iduser']);
-        $this->load->view('header');
+        $this->load->view('header_front', $data);
         $this->load->view('slidebar');
         $this->load->view('objectif', $data);
         $this->load->view('footer');
@@ -147,8 +147,9 @@ class Objectif extends CI_Controller
             if ($planning['total'] > $user->vola) {
                 redirect('Objectif?message=Veuillez recharger votre porte-monnaie , somme trop faible');
             }
+            $data['user'] = $this->Users_model->getUserById($_SESSION['iduser']);
             $data['planning']  = $planning;
-            $this->load->view('header');
+            $this->load->view('header_front', $data);
             $this->load->view('slidebar');
             $this->load->view('planning', $data);
         } else {
@@ -172,7 +173,7 @@ class Objectif extends CI_Controller
                 $data = array(
                     'id_abonnement' => $abonnement['id'],
                     'id_aliment_objectif' => $petitDejeuner->id,
-                    'jour' => $i+1,
+                    'jour' => $i + 1,
                 );
                 $this->db->insert('livraison', $data);
             }
@@ -181,7 +182,7 @@ class Objectif extends CI_Controller
                 $data = array(
                     'id_abonnement' => $abonnement['id'],
                     'id_aliment_objectif' => $dejeuner->id,
-                    'jour' => $i+1,
+                    'jour' => $i + 1,
                 );
                 $this->db->insert('livraison', $data);
             }
@@ -190,7 +191,7 @@ class Objectif extends CI_Controller
                 $data = array(
                     'id_abonnement' => $abonnement['id'],
                     'id_aliment_objectif' => $gouter->id,
-                    'jour' => $i+1,
+                    'jour' => $i + 1,
                 );
                 $this->db->insert('livraison', $data);
             }
@@ -199,7 +200,7 @@ class Objectif extends CI_Controller
                 $data = array(
                     'id_abonnement' => $abonnement['id'],
                     'id_aliment_objectif' => $diner->id,
-                    'jour' => $i+1,
+                    'jour' => $i + 1,
                 );
                 $this->db->insert('livraison', $data);
             }
@@ -208,7 +209,7 @@ class Objectif extends CI_Controller
                 $data = array(
                     'id_abonnement' => $abonnement['id'],
                     'id_sport_objectif' => $sport->id,
-                    'jour' => $i+1,
+                    'jour' => $i + 1,
                 );
                 $this->db->insert('sport_abo', $data);
             }
