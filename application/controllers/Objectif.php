@@ -143,7 +143,12 @@ class Objectif extends CI_Controller
                     break;
                 }
             }
+            if($this->Users_model->GetIsGold($_SESSION['iduser']) == 1)
+            {
+                $planning['total'] = $planning['total'] - ($planning['total'] * (15 / 100));
+            }
             $user = $this->Users_model->getUserById($_SESSION['iduser']);
+
             if ($planning['total'] > $user->vola) {
                 redirect('Objectif?message=Veuillez recharger votre porte-monnaie , somme trop faible');
             }

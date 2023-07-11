@@ -14,7 +14,8 @@ class Offre extends CI_Controller
 
     public function index()
     {
-        $this->load->view('header');
+        $data['user'] = $this->Users_model->getUserById($_SESSION['iduser']);
+        $this->load->view('header_front', $data);
         $this->load->view('slidebar');
         $this->load->view('offre');
         $this->load->view('footer');
