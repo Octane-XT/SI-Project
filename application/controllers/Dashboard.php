@@ -14,9 +14,9 @@ class Dashboard extends CI_Controller
     }
     public function index()
     {
-        // if (!$this->session->userdata('iduser')) {
-        //     redirect('login');
-        // }
+        if (!$this->session->userdata('iduser')) {
+            redirect('Login');
+        }
         $data = array();
         $data['petit_dejeuner'] =$this->Aliment_model->getAlimentByType('1');
         $data['dejeuner'] =$this->Aliment_model->getAlimentByType('3');

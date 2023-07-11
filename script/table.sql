@@ -58,6 +58,7 @@ CREATE TABLE IF NOT EXISTS aliment_objectif (
     FOREIGN KEY (id_aliment) REFERENCES aliment(id),
     FOREIGN KEY (id_regime) REFERENCES regime(id)
 );
+insert into aliment_objectif(id_aliment,id_regime,quantite,poids,prix) values(6,1,100,1,100);
 
 CREATE TABLE IF NOT EXISTS sport_objectif (
     id INT PRIMARY KEY AUTO_INCREMENT,

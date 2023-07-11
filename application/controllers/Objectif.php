@@ -14,6 +14,9 @@ class Objectif extends CI_Controller
     }
     public function index()
     {
+        if(!isset($this->session->userdata('iduser')) && $this->session->userdata('iduser') == ""){
+            redirect('Login');
+        }
         $message = $this->input->get('message');
         if (isset($message) && $message !== "") {
         $data['error'] = $this->input->get('message');
@@ -27,11 +30,16 @@ class Objectif extends CI_Controller
 
     }
     public function checkRegime(){
-
+        if(!isset($this->session->userdata('iduser')) && $this->session->userdata('iduser') == ""){
+            redirect('Login');
+        }
        
         echo json_encode(array("status" => "true","message"=>$this->Abonnement_model->checkRegime($this->input->post('poids_but'))));
     }
     public function regime(){
+        if(!isset($this->session->userdata('iduser')) && $this->session->userdata('iduser') == ""){
+            redirect('Login');
+        }
         $user  =  abs($this->input->post('poids')-$this->Users_model->getUserById($this->session->userdata('iduser'))->poids);
         $regime  = $this->Regime_model->getRegimeById($this->input->post('type'));
         $type = $this->Type_aliment_model->getallType();

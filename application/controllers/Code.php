@@ -14,9 +14,10 @@ class Code extends CI_Controller
         if (!$this->session->userdata('iduser')) {
             redirect('login');
         }
+        $data["code"] = $this->Code_model->getAllCode();
         $this->load->view('header');
         $this->load->view('code/add');
-        $this->load->view('code/list');
+        $this->load->view('code/list',$data);
         $this->load->view('footer');
     }
 
