@@ -15,6 +15,7 @@ CREATE TABLE IF NOT EXISTS utilisateur (
     poids DOUBLE DEFAULT 0,
     taille DOUBLE DEFAULT 0,
     isadmin INT DEFAULT 0,
+    isgold INT DEFAULT 0,
     date_creation DATETIME DEFAULT CURRENT_TIMESTAMP
 );
 
