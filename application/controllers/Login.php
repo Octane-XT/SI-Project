@@ -28,7 +28,7 @@ class Login extends CI_Controller
 			redirect('Login?message=Aucun compte correspondant ou verifiez votre email et mot de passe');
 		} else {
 			$this->session->set_userdata('iduser',$login->id);
-			redirect('Landing');
+			redirect('Objectif');
 		}
 	}
 

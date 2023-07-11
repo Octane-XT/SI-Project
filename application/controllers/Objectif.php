@@ -14,7 +14,7 @@ class Objectif extends CI_Controller
     }
     public function index()
     {
-        if(!isset($this->session->userdata('iduser')) && $this->session->userdata('iduser') == ""){
+        if(($this->session->userdata('iduser') == null) && $this->session->userdata('iduser') == ""){
             redirect('Login');
         }
         $message = $this->input->get('message');
@@ -30,14 +30,14 @@ class Objectif extends CI_Controller
 
     }
     public function checkRegime(){
-        if(!isset($this->session->userdata('iduser')) && $this->session->userdata('iduser') == ""){
+        if(($this->session->userdata('iduser') == null) && $this->session->userdata('iduser') == ""){
             redirect('Login');
         }
        
         echo json_encode(array("status" => "true","message"=>$this->Abonnement_model->checkRegime($this->input->post('poids_but'))));
     }
     public function regime(){
-        if(!isset($this->session->userdata('iduser')) && $this->session->userdata('iduser') == ""){
+        if(($this->session->userdata('iduser') == null) && $this->session->userdata('iduser') == ""){
             redirect('Login');
         }
         $user  =  abs($this->input->post('poids')-$this->Users_model->getUserById($this->session->userdata('iduser'))->poids);
