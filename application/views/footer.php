@@ -24,9 +24,7 @@
   </div>
   </div>
   <div class="footer">
-    <div class="log">
-      <img id="HooSooDook" src="<?php echo base_url("assets/images/logo.jpg"); ?>" srcset="../HooSooDook__final_b.png 1x, ../HooSooDook__final_b@2x.png 2x">
-    </div>
+
     <div class="container">
       <div class="li imp web" id="Nous_Contacter_b">
         <span>Nous Contacter</span>
@@ -57,7 +55,7 @@
       </div>
     </div>
     <div class="name">
-      <span>Izay Mety</span>
+        <img id="HooSooDook" src="<?php echo base_url("assets/images/logo.jpg"); ?>" style="width:100px;height:100px;">
     </div>
   </div>
 

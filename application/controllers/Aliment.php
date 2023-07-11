@@ -52,7 +52,12 @@ class Aliment extends CI_Controller
 
     public function delete($id)
     {
-        $this->Aliment_model->delete($id);
-        redirect('Aliment');
+        try {
+            $this->Aliment_model->delete($id);
+            redirect('Aliment');
+        } catch (Exception $e) {
+            // Gestion de l'exception
+            redirect('Aliment');
+        }
     }
 }

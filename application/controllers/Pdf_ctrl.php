@@ -15,13 +15,15 @@ class Pdf_ctrl extends CI_Controller {
 
     public function exporting_pdf(){
         $datas = json_decode($this->input->post('data'));
+        
         // var_dump($datas);
                 date_default_timezone_set('Europe/Moscow') ;
         $user = $this->Users_model->getUserById($this->session->userdata('iduser'));
                 $invoiceDate = date('Y-m-d');
                 $customerName = $user->nom;
                 $totalAmount = $datas->total;
-
+                $promo =$datas->promo;
+                
                 
        // Créer le contenu de la facture
 // Créer le contenu de la facture
@@ -42,7 +44,7 @@ $content = "
     <tbody>";
 
 // Boucler sur les produits et remplir le tableau dans la facture
-for ($i = 0; $i < count(get_object_vars($datas)) - 1; $i++) {
+for ($i = 0; $i < count(get_object_vars($datas)) - 4; $i++) {
     $petitDejeuner = $datas->$i->petit_dejeuner;
     $dejeuner = $datas->$i->dejeuner;
     $gouter = $datas->$i->gouter;
@@ -103,7 +105,7 @@ for ($i = 0; $i < count(get_object_vars($datas)) - 1; $i++) {
 
     if ($sport->nom !== "rien") {
         $description = $sport->nom;
-        $quantite = $sport->quantite;
+        $quantite = $sport->frequence;
         $prix = $sport->prix;
 
         $content .= "
@@ -123,6 +125,10 @@ $content .= "
             <td colspan='2'><strong>Total :</strong></td>
             <td style='border: 1px solid #000;'>$totalAmount Ar</td>
         </tr>
+        <tr>
+        <td colspan='2'><strong>Promotion :</strong></td>
+        <td style='border: 1px solid #000;'>$promo %</td>
+    </tr>
         <br/> <br/> <br/> <br/> <br/> <br/>
         <tr>
         <td colspan='2'><strong> $customerName</strong></td>
