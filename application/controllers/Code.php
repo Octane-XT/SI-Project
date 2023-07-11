@@ -22,6 +22,7 @@ class Code extends CI_Controller
         $data["code"] = $this->Code_model->getAllCode();
         $data['user'] = $this->Users_model->getUserById($_SESSION['iduser']);
         $this->load->view('header_front', $data);
+        $this->load->view('slidebar');
         $this->load->view('code/add', $data);
         $this->load->view('code/list',$data);
         $this->load->view('footer');
@@ -33,6 +34,7 @@ class Code extends CI_Controller
         }
         $data['user'] = $this->Users_model->getUserById($_SESSION['iduser']);
         $this->load->view('header_front', $data);
+        $this->load->view('slidebar');
         $this->load->view('code/add');
         $this->load->view('code/list');
         $this->load->view('footer');
