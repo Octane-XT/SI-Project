@@ -16,11 +16,14 @@ class Regime_model extends CI_Model
         return $query->row();
     }
 
-    public function insert($nom, $objectif)
+    public function insert($nom, $objectif, $viande, $poisson, $volaille)
     {
         $data = array(
             'nom' => $nom,
-            'objectif' => $objectif
+            'objectif' => $objectif,
+            'viande' => $viande,
+            'poisson' => $poisson,
+            'volaille' => $volaille
         );
         $this->db->insert('regime', $data);
     }

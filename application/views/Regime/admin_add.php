@@ -95,6 +95,29 @@ if (isset($error)) {
             </div>
 
             <div class="form-group">
+                <label for="input-1">Viande</label>
+                <div style="width: 300px;">
+                    <input type="number" name="viande" class="form-control" id="input-viande" min="0" max="100" placeholder="En pourcentage" oninput="checkSum()">
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="input-1">Poisson</label>
+                <div style="width: 300px;">
+                    <input type="number" name="poisson" class="form-control" id="input-poisson" min="0" max="100" placeholder="En pourcentage" oninput="checkSum()">
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="input-1">Volaille</label>
+                <div style="width: 300px;">
+                    <input type="number" name="volaille" class="form-control" id="input-volaille" min="0" max="100" placeholder="En pourcentage" oninput="checkSum()">
+                </div>
+            </div>
+
+            <div id="error-message" style="color: red; display: none;">La somme des pourcentages ne doit pas dépasser 100.</div>
+
+            <div class="form-group">
                 <label for="input-1">Type Regime</label>
                 <div style="width: 300px;">
                     <select name="type" class="form-control" data-parsley-required="true">
@@ -191,5 +214,38 @@ if (isset($error)) {
     $(document).ready(function() {
         $('#mon-formulaire').parsley();
     });
+
+    // Récupérer les éléments des champs de saisie
+    var viandeInput = document.querySelector('input[name="viande"]');
+    var poissonInput = document.querySelector('input[name="poisson"]');
+    var volailleInput = document.querySelector('input[name="volaille"]');
+
+    // Écouter les événements de saisie sur les champs de saisie
+    viandeInput.addEventListener('input', checkSum);
+    poissonInput.addEventListener('input', checkSum);
+    volailleInput.addEventListener('input', checkSum);
+
+    // Fonction pour vérifier la somme des valeurs
+    function checkSum() {
+        var viandeValue = parseInt(viandeInput.value) || 0;
+        var poissonValue = parseInt(poissonInput.value) || 0;
+        var volailleValue = parseInt(volailleInput.value) || 0;
+
+        var sum = viandeValue + poissonValue + volailleValue;
+        var errorMessage = document.getElementById('error-message');
+        var form = document.getElementById('mon-formulaire');
+
+        if (sum > 100) {
+            errorMessage.style.display = 'block';
+            form.addEventListener('submit', preventSubmit);
+        } else {
+            errorMessage.style.display = 'none';
+            form.removeEventListener('submit', preventSubmit);
+        }
+
+        function preventSubmit(event) {
+            event.preventDefault();
+        }
+    }
 </script>
 <script src="<?php echo base_url('assets/js/parsley.min.js'); ?>"></script>
