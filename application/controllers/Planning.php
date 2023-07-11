@@ -6,6 +6,7 @@ class Planning extends CI_Controller
     public function __construct()
     {
         parent::__construct();
+        $this->load->model('Users_model');
     }
 
     public function index()
@@ -13,7 +14,8 @@ class Planning extends CI_Controller
         if (!$this->session->userdata('iduser')) {
             redirect('login');
         }
-        $this->load->view('header');
+        $data['user'] = $this->Users_model->getUserById($_SESSION['iduser']);
+        $this->load->view('header_front', $data);
         $this->load->view('planning');
         $this->load->view('footer');
     }

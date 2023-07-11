@@ -26,20 +26,12 @@
                         </tr>
                     </thead>
                     <tbody>
-                        <tr>
-                            <td>Iphone 5</td>
-                            <td>03 Aug 2017</td>
-                        </tr>
-
-                        <tr>
-                            <td>Earphone GL</td>
-                            <td>03 Aug 2017</td>
-                        </tr>
-
-                        <tr>
-                            <td>HD Hand Camera</td>
-                            <td>03 Aug 2017</td>
-                        </tr>
+                        <?php for ($i = 0; $i < count($code); $i++) { ?>
+                            <tr>
+                                <td><?php echo $code[$i]->nom; ?></td>
+                                <td><?php echo $code[$i]->argent; ?> Ar</td>
+                            </tr>
+                        <?php } ?>
                     </tbody>
                 </table>
             </div>

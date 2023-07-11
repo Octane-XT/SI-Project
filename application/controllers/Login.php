@@ -10,7 +10,12 @@ class Login extends CI_Controller
 
     public function index()
     {
-        $this->load->view('login');
+		if ($this->input->get('message')) {
+			$data['message'] = $this->input->get('message');
+			$this->load->view('login', $data);
+		} else {
+			$this->load->view('login');
+		}
     }
 
     public function check()
@@ -20,15 +25,15 @@ class Login extends CI_Controller
 		$login = $this->Users_model->check($email,$pass);
 
 		if ($login==null) {
-			redirect('Login');
+			redirect('Login?message=Aucun compte correspondant ou verifiez votre email et mot de passe');
 		} else {
 			$this->session->set_userdata('iduser',$login->id);
-			redirect('Landing');
+			redirect('Objectif');
 		}
 	}
 
 	public function logout() {
 		$this->session->unset_userdata('iduser');
-		redirect('');
+		redirect('Login');
 	}
 }

@@ -14,9 +14,9 @@ class Dashboard extends CI_Controller
     }
     public function index()
     {
-        // if (!$this->session->userdata('iduser')) {
-        //     redirect('login');
-        // }
+        if (!$this->session->userdata('iduseradmin')) {
+            redirect('Login');
+        }
         $data = array();
         $data['petit_dejeuner'] =$this->Aliment_model->getAlimentByType('1');
         $data['dejeuner'] =$this->Aliment_model->getAlimentByType('3');
@@ -32,7 +32,8 @@ class Dashboard extends CI_Controller
         $data['total_dejeuner'] = count( $data['dejeuner']);
         $data['total_gouter'] = count( $data['gouter']);
         $data['total_diner'] = count( $data['diner']);
-
+        $data['poids'] = array();
+        $data['montant'] = array();
         $data['total_diner_pour'] = count( $data['diner'])/$data['total'] *100;
         $data['total_petit_dejeuner_pour'] = count( $data['petit_dejeuner'])/$data['total'] *100;
         $data['total_dejeuner_pour'] = count( $data['dejeuner'])/$data['total'] *100;
@@ -42,8 +43,11 @@ class Dashboard extends CI_Controller
         $data['abonnement'] =array();
         $data['abonnement_total'] = 0;
         $data['regimes_total'] =array();
+        $data['abo_regime'] = $this->Abonnement_model->getAbonnementRegime();
         for($i=0;$i<count($data['regimes']);$i++){
             $data['regimes_total'][] = $this->Abonnement_model->getByRegime($regimes[$i]->id);
+             $data['poids'][] = $this->Abonnement_model->getAbonnementAliment($regimes[$i]->id)->sum + $this->Abonnement_model->getAbonnementSport($regimes[$i]->id)->sum;
+             $data['montant'][] = $this->Abonnement_model->getAbonnementAliment($regimes[$i]->id)->sum_prix + $this->Abonnement_model->getAbonnementSport($regimes[$i]->id)->sum_prix;
         }
        
         for($i = 1 ;$i<13;$i++) {
@@ -53,12 +57,34 @@ class Dashboard extends CI_Controller
             $data['abonnement_total'] = $data['abonnement_total'] + intval($this->Abonnement_model->getByMonth($i));
         }
         $data['abo_users']  = $data['abonnement_total'] / $data['users_total']  ;
-        $this->load->view('header');
-    
+        $data['user'] = $this->Users_model->getUserById($_SESSION['iduseradmin']);
+        $this->load->view('header_back', $data);
+        $this->load->view('slidebar_back');
         $this->load->view('dashboard',$data);
+        $this->table();
         $this->load->view('footer');
-      
+
+       
 
 
+    }
+    public function table(){
+        $data['user'] = $this->Users_model->get_user();
+        $data['regime'] = $this->Regime_model->getAllRegime();
+        $data['count'] =array();
+        for ($i=0; $i <count($data['user']); $i++) { 
+           for ($u=0; $u <count($data['regime']) ; $u++) { 
+        $data['count'][$i][$u]= $this->Abonnement_model-> getAbonnementUtilisateur($data['user'][$i]->id,$data['regime'][$u]->id);
+           }
+        }
+        for ($u=0; $u <count($data['regime']) ; $u++) { 
+            $count = 0;
+            for ($i=0; $i <3 ; $i++) { 
+                $data['count_sexe'][$u][$i]= $this->Abonnement_model-> getAbonnementSexe($i,$data['regime'][$u]->id);
+                $count = $count +$this->Abonnement_model-> getAbonnementSexe($i,$data['regime'][$u]->id);
+            }
+            $data['count_sexe'][$u]['count'] = $count;
+               }
+        $this->load->view('tables',$data);
     }
 }

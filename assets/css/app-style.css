@@ -3625,8 +3625,12 @@ table.grid td {
 
 
 }
-
-
+h1{
+    color:#063540;
+}
+hr{
+    border-width: medium;
+}
 
 
 

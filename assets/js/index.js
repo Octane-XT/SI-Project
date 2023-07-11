@@ -67,10 +67,14 @@ function chart(user,abonnement,regime,regime_name) {
                 labels: ["Direct", "Affiliate", "E-mail", "Other"],
                 datasets: [{
                     backgroundColor: [
-                        "#ffffff",
-                        "rgba(255, 255, 255, 0.70)",
-                        "rgba(255, 255, 255, 0.50)",
-                        "rgba(255, 255, 255, 0.20)"
+                        "#000000",
+                        "#FF0000",
+                        "#00FF00", 
+                        "#0000FF", 
+                        "#FFFF00", 
+                        "#FF00FF", 
+                        "#00FFFF", 
+                        "#800080",
                     ],
                     data: regime,
                     borderWidth: [0, 0, 0, 0]
