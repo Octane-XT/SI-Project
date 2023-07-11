@@ -32,6 +32,18 @@
       </a>
     </li>
 
+    <li>
+      <a href="<?php echo base_url('Profil'); ?>">
+        <i class="zmdi zmdi-account"></i> <span>Caracteristique</span>
+      </a>
+    </li>
+
+    <li>
+      <a href="<?php echo base_url('Offre'); ?>">
+        <i class="zmdi zmdi-code"></i> <span>Offre</span>
+      </a>
+    </li>
+
   </ul>
 
 </div>

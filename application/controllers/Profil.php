@@ -17,7 +17,7 @@ class Profil extends CI_Controller
         $this->load->view('footer');
     }
 
-    public function udpate()
+    public function update()
 	{
         $poids = $this->input->post('poids');
         $taille = $this->input->post('taille');
