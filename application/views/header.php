@@ -1,3 +1,4 @@
+<!DOCTYPE html>
 <head>
     <meta charset="utf-8"/>
     <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
@@ -77,7 +78,7 @@
 </div>
    <!--End topbar header-->
      <!-- Bootstrap core JavaScript-->
-  <script src="<?php echo base_url('assets/js/jquery.min.js');?>"></script>
+
+     <script src="<?php echo base_url('assets/js/jquery.min.js');?>"></script>
   <script src="<?php echo base_url('assets/js/popper.min.js');?>"></script>
   <script src="<?php echo base_url('assets/js/bootstrap.min.js');?>"></script>
-   

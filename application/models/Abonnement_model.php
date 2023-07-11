@@ -52,6 +52,27 @@ public function getAbonnementAliment($regime)
     }
     return $compte;
 }
+public function getRegimeAliment($regime,$type)
+{
+    $compte = array();
+    $request = "select aliment_objectif.*,aliment.* from aliment_objectif  join regime on regime.id =  aliment_objectif.id_regime  join aliment on aliment_objectif.id_aliment = aliment.id where id_regime=%s and id_type_aliment = %s;";
+    $query = $this->db->query(sprintf($request,$regime,$type));
+    foreach ($query->result_array() as $row) {
+        $compte[] = $row;
+    }
+    return $compte;
+}
+public function getRegimeSport($regime)
+{
+    $compte = array();
+    $request = "select sport_objectif.* from regime  join sport_objectif on regime.id =  sport_objectif.id_regime where id_regime=%s ";
+    $query = $this->db->query(sprintf($request,$regime));
+    foreach ($query->result_array() as $row) {
+        $compte[] = $row;
+    }
+    return $compte;
+}
+
 public function getAbonnementSport($regime)
 {
     $compte = new StdClass();
@@ -62,6 +83,28 @@ public function getAbonnementSport($regime)
         $compte->sum_prix= $row['sum_prix'];
     }
     return $compte;
+}
+public function checkregime($poids_but){
+    $this->load->model('Users_model');
+    $poids_actu = $this->Users_model->getUserById($this->session->userdata('iduser'))->poids ;
+    $poids =  $poids_but - $poids_actu ;
+    if($poids < 0){
+        $compte = array();
+        $request = "select regime.* from regime where objectif=-1;";
+        $query = $this->db->query(sprintf($request));
+        foreach ($query->result_array() as $row) {
+            $compte[]= $row;
+        }
+        return $compte;
+    }else{
+        $compte = array();
+        $request = "select regime.* from regime where objectif=1;";
+        $query = $this->db->query(sprintf($request));
+        foreach ($query->result_array() as $row) {
+            $compte[]= $row;
+        }
+        return $compte;
+    }
 }
 
 }
