@@ -38,6 +38,26 @@ class Abonnement_model extends CI_Model
         }
         return $compte;
     }
+    public function getAbonnementUtilisateur($id_utilisateur,$id_regime)
+    {
+        $compte = 0;
+        $request = "select coalesce(count(abonnement.id),0) as count ,utilisateur.* from abonnement right outer join utilisateur on abonnement.id_utilisateur = utilisateur.id where utilisateur.id = %s AND abonnement.id_regime = %s;";
+        $query = $this->db->query(sprintf($request,$id_utilisateur,$id_regime));
+        foreach ($query->result_array() as $row) {
+            $compte = $row['count'];
+        }
+        return $compte;
+    }
+    public function getAbonnementSexe($sexe,$regime)
+    {
+        $compte = 0;
+        $request = "select coalesce(count(abonnement.id),0) as count ,utilisateur.* from abonnement right outer join utilisateur on abonnement.id_utilisateur = utilisateur.id where utilisateur.genre = %s AND abonnement.id_regime = %s;";
+        $query = $this->db->query(sprintf($request,$sexe,$regime));
+        foreach ($query->result_array() as $row) {
+            $compte = $row['count'];
+        }
+        return $compte;
+    }
     public function getAbonnementAliment($regime)
     {
         $compte = new StdClass();

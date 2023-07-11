@@ -8,8 +8,13 @@
 
 </head>
 
-      <!--Start Dashboard Content-->
 
+
+      <!--Start Dashboard Content-->
+      <h3>
+        PROGRESS BAR
+      </h3>
+      <hr/>
       <div class="card mt-3">
         <div class="card-content">
           <div class="row row-group m-0">
@@ -53,9 +58,19 @@
         </div>
       </div>
    </div>  
+   <br/>
+   <br/>
+   <br/>
+   <br/>
+   <h3>
+        GRAPHE
+      </h3>
+   <hr/>
+   <br/>
+   <br/>
 
       <div class="row">
-        <div class="col-12 col-lg-8 col-xl-8">
+        <div class="col-8 col-lg-8 col-xl-8">
           <div class="card">
             <div class="card-header">Traffic sur le Site
               <div class="card-action">
@@ -85,7 +100,7 @@
            </div>
            
            <div class="row m-0 row-group text-center border-top border-light-3">
-             <div class="col-12 col-lg-4">
+             <div class="col-4 col-lg-4">
                <div class="p-3">
                  <h5 class="mb-0"><?php echo $abonnement_total;?></h5>
                  <small class="mb-0">Total Abonnement </small>
@@ -108,7 +123,7 @@
           </div>
        </div>
   
-       <div class="col-12 col-lg-4 col-xl-4">
+       <div class="col-10 col-lg-4 col-xl-4">
           <div class="card">
              <div class="card-header">Abonnement par regime
                <div class="card-action">
@@ -147,9 +162,20 @@
            </div>
        </div>
       </div><!--End Row-->
-      
+      <br/>
+   <br/>
+   <br/>
+   <br/>
+
+   <br/>
+   <h3>
+       CLASSEMENT
+                  </h3>
+   <hr/>
+   <br/>
+
       <div class="row">
-       <div class="col-12 col-lg-12">
+       <div class="col-10 col-lg-10">
          <div class="card">
            <div class="card-header">Classement Appreciation Regime & efficacite hebdomadaire
             <div class="card-action">
@@ -197,25 +223,7 @@
                  </div>
          </div>
        </div>
-      </div><!--End Row-->
-  
-        <!--End Dashboard Content-->
-        
-      <!--start overlay-->
-            <div class="overlay toggle-menu"></div>
 
-      <!-- End container-fluid-->
-      
-      </div><!--End content-wrapper-->
-
-            </div>
-      </div><!--End Row-->
-
-      <!--End Dashboard Content-->
-    </div>
-    <!-- End container-fluid-->
-
-  </div><!--End content-wrapper-->
 
 
 </div><!--End wrapper-->

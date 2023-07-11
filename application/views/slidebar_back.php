@@ -31,6 +31,11 @@
         <i class="zmdi zmdi-calendar"></i> <span>Regime</span>
       </a>
     </li>
+    <li>
+        <a href="<?php echo base_url('Dashboard/table'); ?>">
+          <i class="zmdi zmdi-grid"></i> <span>Tables</span>
+        </a>
+      </li>
 
     <li>
       <a href="<?php echo base_url('Admin_code'); ?>">
