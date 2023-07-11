@@ -1,23 +1,21 @@
 <head>
   <!--favicon-->
-  <link rel="icon" href="assets/images/favicon.ico" type="image/x-icon">
+  <link rel="icon" href="<?php echo base_url('assets/images/favicon.ico')?>" type="image/x-icon">
   <!-- simplebar CSS-->
-  <link href="assets/plugins/simplebar/css/simplebar.css" rel="stylesheet" />
-  <!-- Bootstrap core CSS-->
-  <link href="assets/css/bootstrap.min.css" rel="stylesheet" />
+  <link href="<?php echo base_url('assets/plugins/simplebar/css/simplebar.css')?>" rel="stylesheet" />
   <!-- Icons CSS-->
-  <link href="assets/css/icons.css" rel="stylesheet" type="text/css" />
+  <link href="<?php echo base_url('assets/css/icons.css')?>" rel="stylesheet" type="text/css" />
   <!-- Sidebar CSS-->
-  <link href="assets/css/sidebar-menu.css" rel="stylesheet" />
+  <link href="<?php echo base_url('assets/css/sidebar-menu.css')?>" rel="stylesheet" />
   <!-- Custom Style-->
-  <link href="assets/css/app-style.css" rel="stylesheet" />
+  <link href=" <?php echo base_url('assets/css/app-style.css')?>" rel="stylesheet" />
 
 </head>
 <!--Start sidebar-wrapper-->
 <div id="sidebar-wrapper" data-simplebar="" data-simplebar-auto-hide="true">
   <div class="brand-logo">
     <a href="index.html">
-      <img src="assets/images/logo.jpg" class="logo-icon" alt="logo icon" style="width:50px;height:30px;">
+      <img src="<?php echo base_url('assets/images/logo.jpg')?>" class="logo-icon" alt="logo icon" style="width:50px;height:30px;">
     </a>
   </div>
   <ul class="sidebar-menu do-nicescrol">
@@ -59,11 +57,11 @@
 </div>
 <!--End sidebar-wrapper-->
 <!-- Bootstrap core JavaScript-->
-<script src="assets/js/jquery.min.js"></script>
-<script src="assets/js/popper.min.js"></script>
-<script src="assets/js/bootstrap.min.js"></script>
+<script src="<?php echo base_url('assets/js/jquery.min.js')?>"></script>
+<script src="<?php echo base_url('assets/js/popper.min.js')?>"></script>
+<script src="<?php echo base_url('assets/js/bootstrap.min.js')?>"></script>
 <!-- simplebar js -->
-<script src="assets/plugins/simplebar/js/simplebar.js"></script>
+<script src="<?php echo base_url('assets/plugins/simplebar/js/simplebar.js')?>"></script>
 
 <div id="wrapper">
   <div class="clearfix"></div>
