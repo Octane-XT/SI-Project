@@ -21,34 +21,32 @@
   <ul class="sidebar-menu do-nicescrol">
     <li class="sidebar-header">ACTIVITES</li>
     <li>
-      <a href="index.html">
+      <a href="<?php echo base_url('Dashboard'); ?>">
         <i class="zmdi zmdi-view-dashboard"></i> <span>Dashboard</span>
       </a>
     </li>
 
-
     <li>
-      <a href="tables.html">
-        <i class="zmdi zmdi-grid"></i> <span>Regime</span>
+      <a href="<?php echo base_url('Regime'); ?>">
+        <i class="zmdi zmdi-calendar"></i> <span>Regime</span>
       </a>
     </li>
 
     <li>
-      <a href="calendar.html">
-        <i class="zmdi zmdi-calendar-check"></i> <span>Code</span>
-        <small class="badge float-right badge-light">New</small>
+      <a href="<?php echo base_url('Admin_code'); ?>">
+        <i class="zmdi zmdi-code"></i> <span>Code</span>
       </a>
     </li>
 
     <li>
-      <a href="profile.html">
-        <i class="zmdi zmdi-face"></i> <span>Sport</span>
+      <a href="<?php echo base_url('Sport'); ?>">
+        <i class="zmdi zmdi-directions-run"></i> <span>Sport</span>
       </a>
     </li>
 
     <li>
-      <a href="login.html" target="_blank">
-        <i class="zmdi zmdi-lock"></i> <span>Plat</span>
+      <a href="<?php echo base_url('Aliment'); ?>">
+        <i class="zmdi zmdi-local-dining"></i> <span>Plat</span>
       </a>
     </li>
 
