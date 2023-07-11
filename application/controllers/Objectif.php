@@ -33,8 +33,13 @@ class Objectif extends CI_Controller
         if (($this->session->userdata('iduser') == null) && $this->session->userdata('iduser') == "") {
             redirect('Login');
         }
-
-        echo json_encode(array("status" => "true", "message" => $this->Abonnement_model->checkRegime($this->input->post('poids_but'))));
+        $user = $this->Users_model->getUserById($this->session->userdata('iduser'));
+        $poids = $this->input->post('poids_but');
+        if($this->input->post('poids_but') == "0" ||  $this->input->post('poids_but') == "") { 
+            $poids = ($user->taille *0.01*$user->taille*0.01)*20;
+            // echo $poids;
+        }
+        echo json_encode(array("status" => "true", "message" => $this->Abonnement_model->checkRegime($poids),"poids" => $poids));
     }
     public function regime()
     {

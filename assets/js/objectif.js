@@ -1,10 +1,10 @@
 var obj = document.getElementById('select_champ');
-function getSelect(dat){
+function getSelect(dat,poids){
 var text = `<select name="type" id="exampleInputName1" class="form-control input-shadow">`;
 for (var i=0; i< dat.length; i++){
     text = text + "<option value="+dat[i].id+">"+dat[i].nom+"</option>";
 }
-text = text + "</select>";
+text = text + "</select>" +"<br/> Vous voulez atteindre "+poids;
 obj.innerHTML = text;
 }
 
@@ -21,7 +21,7 @@ inputElement.addEventListener('input', function(event) {
             data: {'poids_but':inputElement.value},
             success: function (output) {
                 const dat = JSON.parse(output);
-                getSelect(dat.message);
+                getSelect(dat.message,dat.poids);
             },
             beforeSend: function () {
                 //Code à appeler avant l'appel ajax en lui même

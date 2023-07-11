@@ -86,9 +86,12 @@ if (isset($error)) {
     <div class="card-body">
         <div class="card-content p-2">
             <div class="form-group">
+            <h6>Pour selection un REGIME pour votre poids ideal mettez 0 SUR LE champ OBJECTIF</h6>
                 <label for="exampleInputUsername" class="sr-only">Objectif</label>
                 <div class="position-relative has-icon-right">
                     <form action="<?php echo base_url("Objectif/regime"); ?>" method="post">
+                   
+                    
                         <input type="number" name="poids" id="exampleInputUsername" class="form-control input-shadow" placeholder="Enter Your Objectif">
                         <div class="form-control-position">
                             <i class="icon-user"></i>
