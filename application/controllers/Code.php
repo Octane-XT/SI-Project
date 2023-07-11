@@ -35,7 +35,10 @@ class Code extends CI_Controller
         $code = $this->input->post('code');
         $this->Code_model->update($code);
         $id = $this->Code_model->getid($code);
+        if($id==null){
+            redirect('Code?message=code non valide');
+        }
         $this->Code_model->insert_user($this->session->userdata('iduser'),$id[0]->id);
-        redirect('');
+        redirect('Code');
     }
 }
