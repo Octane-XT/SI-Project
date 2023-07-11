@@ -11,13 +11,6 @@
             <span class="mdi mdi-close close"></span>
         </div>
         <style>
-            *,
-            *::before,
-            *::after {
-                margin: 0;
-                padding: 0;
-                box-sizing: border-box;
-            }
 
             :root {
                 --primary: #0676ed;
@@ -26,15 +19,6 @@
                 --success: #12c99b;
                 --error: #e41749;
                 --dark: #151a30;
-            }
-
-            body {
-                min-height: 100vh;
-                display: flex;
-                justify-content: center;
-                align-items: center;
-                flex-direction: column;
-                gap: 20px;
             }
 
             .alert {
