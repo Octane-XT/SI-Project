@@ -156,7 +156,7 @@ class Regime extends CI_Controller
             $aliment = intval($aliment);
             $quantite = intval($quantitepetitdej[$index]);
             $prix = intval($prixpetitdej[$index]);
-            $poids = intval($poidspetitdej[$index]);
+            $poids = 0.001 * intval($poidspetitdej[$index]);
         
             $this->Alimentobjectif_model->insert($aliment, intval($regimebynomobjectif->id), $quantite, $poids, $prix);
         }
@@ -165,7 +165,7 @@ class Regime extends CI_Controller
             $aliment = intval($aliment);
             $quantite = intval($quantitegouter[$index]);
             $prix = intval($prixgouter[$index]);
-            $poids = intval($poidsgouter[$index]);
+            $poids = 0.001 * intval($poidsgouter[$index]);
         
             $this->Alimentobjectif_model->insert($aliment, intval($regimebynomobjectif->id), $quantite, $poids, $prix);
         }
@@ -174,7 +174,7 @@ class Regime extends CI_Controller
             $aliment = intval($aliment);
             $quantite = intval($quantitedejeuner[$index]);
             $prix = intval($prixdejeuner[$index]);
-            $poids = intval($poidsdejeuner[$index]);
+            $poids = 0.001 * intval($poidsdejeuner[$index]);
         
             $this->Alimentobjectif_model->insert($aliment, intval($regimebynomobjectif->id), $quantite, $poids, $prix);
         }
@@ -183,7 +183,7 @@ class Regime extends CI_Controller
             $aliment = intval($aliment);
             $quantite = intval($quantitediner[$index]);
             $prix = intval($prixdiner[$index]);
-            $poids = intval($poidsdiner[$index]);
+            $poids = 0.001 * intval($poidsdiner[$index]);
         
             $this->Alimentobjectif_model->insert($aliment, intval($regimebynomobjectif->id), $quantite, $poids, $prix);
         }
@@ -192,7 +192,7 @@ class Regime extends CI_Controller
             $activite = intval($activite);
             $frequence = intval($frequencesport[$index]);
             $prix = intval($prixsport[$index]);
-            $poids = intval($poidssport[$index]);
+            $poids = 0.001 * intval($poidssport[$index]);
         
             $this->Sportobjectif_model->insert($activite, intval($regimebynomobjectif->id), $frequence, $poids, $prix);
         }
