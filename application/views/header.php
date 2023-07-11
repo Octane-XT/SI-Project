@@ -7,12 +7,10 @@
     <title></title>
     <!-- Bootstrap core CSS-->
     <link href="<?php echo base_url('assets/css/bootstrap.min.css');?>" rel="stylesheet"/>
-    animate CSS
     <link href="<?php echo base_url('assets/css/animate.css');?>" rel="stylesheet" type="text/css"/>
-    Icons CSS
     <link href="<?php echo base_url('assets/css/icons.css');?>" rel="stylesheet" type="text/css"/>
-    Custom Style
     <link href="<?php echo base_url('assets/css/app-style.css');?>" rel="stylesheet"/>
+    <link href="<?php echo base_url('assets/css/parsley.css');?>" rel="stylesheet"/>
     
   </head>
   <div id="wrapper">
@@ -82,3 +80,5 @@
      <script src="<?php echo base_url('assets/js/jquery.min.js');?>"></script>
   <script src="<?php echo base_url('assets/js/popper.min.js');?>"></script>
   <script src="<?php echo base_url('assets/js/bootstrap.min.js');?>"></script>
+  <script src="<?php echo base_url('assets/js/parsley.min.js');?>"></script>
+

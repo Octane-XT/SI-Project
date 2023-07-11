@@ -20,7 +20,7 @@ class Users_model extends CI_Model
     public function getUserById($id)
     {
         $query = $this->db->get_where('utilisateur', array('id' => $id));
-        return $query->row(); // Renvoie un seul résultat sous forme d'objet
+        return $query->row();
     }
 
     public function add_user()

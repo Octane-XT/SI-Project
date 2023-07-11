@@ -3,20 +3,6 @@ defined('BASEPATH') or exit('No direct script access allowed');
 
 class Alimentobjectif_model extends CI_Model
 {
-    // Insertion d'un enregistrement
-    public function insert($id_aliment, $id_regime, $quantite, $poids, $prix)
-    {
-        $data = array(
-            'id_aliment' => $id_aliment,
-            'id_regime' => $id_regime,
-            'quantite' => $quantite,
-            'poids' => $poids,
-            'prix' => $prix
-        );
-        $this->db->insert('aliment_objectif', $data);
-        return $this->db->insert_id();
-    }
-
     // Récupération de tous les enregistrements
     public function get_all()
     {
@@ -53,5 +39,17 @@ class Alimentobjectif_model extends CI_Model
     {
         $this->db->where('id', $id);
         $this->db->delete('aliment_objectif');
+    }
+
+    public function insert($id_aliment, $id_regime, $quantite, $poids, $prix)
+    {
+        $data = array(
+            'id_aliment' => $id_aliment,
+            'id_regime' => $id_regime,
+            'quantite' => $quantite,
+            'poids' => $poids,
+            'prix' => $prix
+        );
+        $this->db->insert('aliment_objectif', $data);
     }
 }

@@ -29,16 +29,20 @@ class Alimentobjectif extends CI_Controller
 
     public function store()
     {
-        $data = array(
-            'id_aliment' => $this->input->post('aliment'),
-            'id_regime' => $this->input->post('regime'),
-            'quantite' => $this->input->post('quantite'),
-            'poids' => $this->input->post('poids'),
-            'prix' => $this->input->post('prix')
-        );
-        $this->Alimentobjectif_model->insert($data);
-        redirect('alimentobjectif');
+        if($this->input->post('quantite')>0 && $this->input->post('prix') > 0 && $this->input->post('poids')){
+            $data = array(
+                'id_aliment' => $this->input->post('aliment'),
+                'id_regime' => $this->input->post('regime'),
+                'quantite' => $this->input->post('quantite'),
+                'poids' => $this->input->post('poids'),
+                'prix' => $this->input->post('prix')
+            );
+            $this->Alimentobjectif_model->insert($data);
+            redirect('alimentobjectif');
+        }
+        redirect('alimentobjectif/create');
     }
+        
 
     public function show($id)
     {

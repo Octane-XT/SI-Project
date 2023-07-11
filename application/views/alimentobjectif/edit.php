@@ -3,7 +3,7 @@
         <div class="card-title">Code</div>
         <hr>
         <form method="POST" action="<?php echo base_url('Code/check_code'); ?>">
-            <input type="hidden" name="id" values="<?php echo $aliment_objectif[0]["id"]; ?>">
+            <input type="hidden" name="id" value="<?php echo $aliment_objectif[0]["id"]; ?>">
             <div class="form-group">
                 <label for="input-1">Aliment</label>
                 <div style="width: 300px;">
@@ -31,21 +31,21 @@
             <div class="form-group">
                 <label for="input-1">Quantite</label>
                 <div style="width: 300px;">
-                    <input type="number" name="quantite" class="form-control" id="input-1" placeholder="<?php echo $aliment_objectif[0]["quantite"]; ?>">
+                    <input type="number" name="quantite" class="form-control" id="input-1" value="<?php echo $aliment_objectif[0]["quantite"]; ?>">
                 </div>
             </div>
 
             <div class=" form-group">
                 <label for="input-1">Poids</label>
                 <div style="width: 300px;">
-                    <input type="number" name="poids" class="form-control" id="input-1" placeholder="<?php echo $aliment_objectif[0]["poids"]; ?>">
+                    <input type="number" name="poids" class="form-control" id="input-1" value="<?php echo $aliment_objectif[0]["poids"]; ?>">
                 </div>
             </div>
 
             <div class=" form-group">
                 <label for="input-1">Prix</label>
                 <div style="width: 300px;">
-                    <input type="number" name="prix" class="form-control" id="input-1" placeholder="<?php echo $aliment_objectif[0]["prix"]; ?>">
+                    <input type="number" name="prix" class="form-control" id="input-1" value="<?php echo $aliment_objectif[0]["prix"]; ?>">
                 </div>
             </div>
 

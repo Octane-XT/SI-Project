@@ -21,26 +21,21 @@
                 <table class="table align-items-center table-flush table-borderless">
                     <thead>
                         <tr>
-                            <th>Code</th>
-                            <th>Valeur</th>
+                            <th>Nom</th>
+                            <th>Type</th>
                             <th></th>
                             <th></th>
                         </tr>
                     </thead>
                     <tbody>
-                        <?php for ($i = 0; $i < count($code); $i++) { if($code[$i]->estutilise < 11) { ?>
+                        <?php for ($i = 0; $i < count($listAliment); $i++) { ?>
                             <tr>
-                                <td><?php echo $code[$i]->nom; ?></td>
-                                <td><?php echo $code[$i]->argent; ?></td>
-                                <td><a href="<?php echo base_url('Admin_code/edit/'. $code[$i]->id);?>"><button class="btn btn-info">Modifier</button></a></td>
-                                <td><a href="<?php echo base_url('Admin_code/delete/'. $code[$i]->id);?>"><button class="btn btn-danger">Supprimer</button></a></td>
-                                <td>
-                                    <?php if ($code[$i]->estutilise == 1) { ?>
-                                        <a href="<?php echo base_url('Admin_code/validate/'. $code[$i]->id);?>"><button class="btn btn-danger">Valider</button></a>
-                                    <?php } ?>
-                                </td>
+                                <td><?php echo $listAliment[$i]['nom']; ?></td>
+                                <td><?php echo $listAliment[$i]['typenom']; ?></td>
+                                <td><a href="<?php echo base_url('Aliment/edit/' . $listAliment[$i]['id']); ?>"><button class="btn btn-info">Modifier</button></a></td>
+                                <td><a href="<?php echo base_url('Aliment/delete/' . $listAliment[$i]['id']); ?>"><button class="btn btn-danger">Supprimer</button></a></td>
                             </tr>
-                        <?php } } ?>
+                        <?php } ?>
                     </tbody>
                 </table>
             </div>

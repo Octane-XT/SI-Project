@@ -19,12 +19,15 @@ class Admin_regime extends CI_Controller
 
     public function add()
     {
+        if($this->input->post('objectif')!=1 || $this->input->post('objectif') != -1){
+            redirect('Admin_regime');
+        }
         $data = array(
             'nom' => $this->input->post('nom'),
             'objectif' => $this->input->post('objectif')
         );
         $this->Regime_model->create($data);
-        redirect('');
+        redirect('Admin_regime');
     }
 
     public function edit()
@@ -39,6 +42,6 @@ class Admin_regime extends CI_Controller
     public function delete(){
         $id = $this->input->get('id');
         $this->Regime_model->delete($id);
-        redirect('');
+        redirect('Admin_regime');
     }
 }

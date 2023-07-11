@@ -21,26 +21,27 @@ class Admin_code extends CI_Controller
 
     public function add()
     {
+        if($this->input->post('argent')<0){
+            redirect('Admin_code');
+        }
         $data = array(
-            'nom' => $this->input->post('nom'),
+            'code' => $this->input->post('nom'),
             'argent' => $this->input->post('argent')
         );
-        $this->Code_model->create($data);
-        redirect('');
+        $this->Code_model->insert($data);
+        redirect('Admin_code');
     }
 
-    public function edit()
+    public function edit($id)
     {
-        $id = $this->input->get('id');
-        $data['code'] = $this->Code_model->get_by_id($id);
+        $data['code'] = $this->Code_model->getcodebyid($id);
         $this->load->view('header');
         $this->load->view('code/admin_edit', $data);
         $this->load->view('footer');
     }
 
-    public function delete()
+    public function delete($id)
     {
-        $id = $this->input->get('id');
         $this->Code_model->delete($id);
         redirect('');
     }

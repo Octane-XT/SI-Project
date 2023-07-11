@@ -13,7 +13,7 @@ class Regime_model extends CI_Model
     {
         $this->db->where(array('nom' => $nom, 'objectif' => $objectif));
         $query = $this->db->get('regime');
-        return $query->result();
+        return $query->row();
     }
 
     public function insert($nom, $objectif)
