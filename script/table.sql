@@ -45,7 +45,10 @@ CREATE TABLE IF NOT EXISTS code (
 CREATE TABLE IF NOT EXISTS regime (
     id INT PRIMARY KEY AUTO_INCREMENT,
     nom VARCHAR(30),
-    objectif INT
+    objectif INT,
+    viande DOUBLE DEFAULT 0,
+    poisson DOUBLE DEFAULT 0,
+    volaille DOUBLE DEFAULT 0
 );
 
 CREATE TABLE IF NOT EXISTS aliment_objectif (
