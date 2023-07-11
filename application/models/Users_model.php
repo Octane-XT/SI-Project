@@ -64,4 +64,38 @@ class Users_model extends CI_Model
         $this->db->where('id', $id);
         $this->db->delete('utilisateur');
     }
+
+    public function getVolaValue($user_id)
+    {
+        $this->db->select('vola');
+        $this->db->from('utilisateur');
+        $this->db->where('id', $user_id);
+        $query = $this->db->get();
+
+        if ($query->num_rows() > 0) {
+            $row = $query->row();
+            return $row->vola;
+        } else {
+            return null;
+        }
+    }
+
+    function updateVola($user_id, $new_vola)
+    {
+        $data = array(
+            'vola' => $new_vola
+        );
+
+        $this->db->where('id', $user_id);
+        $this->db->update('utilisateur', $data);
+
+        // Check if the update was successful
+        if ($this->db->affected_rows() > 0) {
+            return true; // Update successful
+        } else {
+            return false; // Update failed
+        }
+    }
+
+
 }
