@@ -1,6 +1,6 @@
--- CREATE DATABASE regime;
+CREATE DATABASE regime;
 
--- USE regime;
+USE regime;
 
 CREATE TABLE IF NOT EXISTS utilisateur (
     id INT PRIMARY KEY AUTO_INCREMENT,
