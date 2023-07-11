@@ -21,7 +21,7 @@ class Admin extends CI_Controller
         $login = $this->Users_model->check($email, $pass);
 
         if ($login->isadmin == 1) {
-            $this->session->set_userdata('iduser', $login->id);
+            $this->session->set_userdata('iduseradmin', $login->id);
             redirect('Dashboard');
         } else {
             redirect('Admin');
@@ -30,7 +30,7 @@ class Admin extends CI_Controller
 
     public function logout()
     {
-        $this->session->unset_userdata('iduser');
+        $this->session->unset_userdata('iduseradmin');
         redirect('Admin');
     }
 }

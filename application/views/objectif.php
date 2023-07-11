@@ -19,99 +19,106 @@
 
 <body>
     <?php
-    if(isset($error)){ 
+    if (isset($error)) {
         $message =  $error;
-        ?>
+    ?>
+        <div class="alert alert-error">
+            <div class="icon__wrapper">
+                <i class="zmdi zmdi-alert-circle"></i>
+            </div>
+            <p><?php echo $message; ?><a href="<?php echo base_url('Code') ?>">.Acheter un code </a></p>
+            <span class="mdi mdi-open-in-new open"></span>
+            <span class="mdi mdi-close close"></span>
+        </div>
+        <style>
+            *,
+            *::before,
+            *::after {
+                margin: 0;
+                padding: 0;
+                box-sizing: border-box;
+            }
 
+            :root {
+                --primary: #0676ed;
+                --background: #222b45;
+                --warning: #f2a600;
+                --success: #12c99b;
+                --error: #e41749;
+                --dark: #151a30;
+            }
 
-  <div class="alert alert-error">
-  <div class="icon__wrapper">
-    <i class="zmdi zmdi-alert-circle"></i>
-  </div>
-  <p><?php echo $message ;?><a href="<?php echo base_url('Code')?>">.Acheter un code </a></p>
-  <span class="mdi mdi-open-in-new open"></span>
-  <span class="mdi mdi-close close"></span>
-</div>
-<style>
-    *,
-*::before,
-*::after {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
+            body {
+                min-height: 100vh;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                flex-direction: column;
+                gap: 20px;
+            }
 
-:root {
-  --primary: #0676ed;
-  --background: #222b45;
-  --warning: #f2a600;
-  --success: #12c99b;
-  --error: #e41749;
-  --dark: #151a30;
-}
+            .alert {
+                position: absolute;
+                z-index: 1;
+                min-height: 67px;
+                width: 560px;
+                max-width: 90%;
+                border-radius: 12px;
+                padding: 16px 22px 17px 20px;
+                display: flex;
+                align-items: center;
+            }
 
-body {
-  min-height: 100vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
-  gap: 20px;
-}
+            .alert-error {
+                background: var(--error);
+            }
 
-.alert {
-    position:absolute;
-    z-index: 1;
-  min-height: 67px;
-  width: 560px;
-  max-width: 90%;
-  border-radius: 12px;
-  padding: 16px 22px 17px 20px;
-  display: flex;
-  align-items: center;
-}
+            .alert .icon__wrapper {
+                height: 34px;
+                width: 34px;
+                border-radius: 50%;
+                background: rgba(255, 255, 255, 0.253);
+                display: flex;
+                align-items: center;
+                justify-content: center;
+            }
 
-.alert-error {
-  background: var(--error);
-}
-.alert .icon__wrapper {
-  height: 34px;
-  width: 34px;
-  border-radius: 50%;
-  background: rgba(255, 255, 255, 0.253);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-.alert .icon__wrapper span {
-  font-size: 21px;
-  color: #fff;
-}
-.alert p {
-  color: #fff;
-  font-family: Verdana;
-  margin-left: 10px;
-}
-.alert p a,
-.alert p a:visited,
-.alert p a:active {
-  color: #000;
-}
-.alert .open {
-  margin-left: auto;
-  margin-right: 5px;
-}
-.alert .close, .alert .open {
-  color: #fff;
-  transition: transform 0.5s;
-  font-size: 18px;
-  cursor: pointer;
-}
-.alert .close:hover, .alert .open:hover {
-  transform: scale(1.3);
-}
-</style>
-<?php  } ?>
+            .alert .icon__wrapper span {
+                font-size: 21px;
+                color: #fff;
+            }
+
+            .alert p {
+                color: #fff;
+                font-family: Verdana;
+                margin-left: 10px;
+            }
+
+            .alert p a,
+            .alert p a:visited,
+            .alert p a:active {
+                color: #000;
+            }
+
+            .alert .open {
+                margin-left: auto;
+                margin-right: 5px;
+            }
+
+            .alert .close,
+            .alert .open {
+                color: #fff;
+                transition: transform 0.5s;
+                font-size: 18px;
+                cursor: pointer;
+            }
+
+            .alert .close:hover,
+            .alert .open:hover {
+                transform: scale(1.3);
+            }
+        </style>
+    <?php  } ?>
     <!-- Start wrapper-->
     <div id="wrapper">
 
@@ -134,7 +141,7 @@ body {
                         <div class="form-group">
                             <label for="exampleInputUsername" class="sr-only">Poids</label>
                             <div class="position-relative has-icon-right">
-                                <input type="number" name="poids" id="exampleInputUsername" class="form-control input-shadow" placeholder="Enter Your Objectif" >
+                                <input type="number" name="poids" id="exampleInputUsername" class="form-control input-shadow" placeholder="Enter Your Objectif">
                                 <div class="form-control-position">
                                     <i class="icon-user"></i>
                                 </div>
@@ -143,7 +150,7 @@ body {
 
                         <div class="form-group">
                             <label for="exampleInputName" class="sr-only">Type de regime</label>
-                            <div class="position-relative has-icon-right" id= "select_champ">
+                            <div class="position-relative has-icon-right" id="select_champ">
                                 <select name="type" id="exampleInputName1" class="form-control input-shadow">
                                     <option value="">Selectionnez le type de regime</option>
                                 </select>

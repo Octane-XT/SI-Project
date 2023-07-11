@@ -73,7 +73,7 @@ class Objectif extends CI_Controller
                     }
                 }
                 else{
-                    $planning[$i]['petit_dejeuner'] = 'rien';
+                    $planning[$i]['petit_dejeuner']['nom'] = 'rien';
                 }
                 if( count($dejeuner) > 0){
                     $planning[$i]['dejeuner'] = $dejeuner[$dejeuner_ind];
