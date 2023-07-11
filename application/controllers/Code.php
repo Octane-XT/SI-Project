@@ -33,9 +33,14 @@ class Code extends CI_Controller
 
     public function check_code(){
         $code = $this->input->post('code');
-        $this->Code_model->update($code);
         $id = $this->Code_model->getid($code);
-        $this->Code_model->insert_user($this->session->userdata('iduser'),$id[0]->id);
-        redirect('');
+        if($id==null || $id[0]->estutilise == 1 || $id[0]->estutilise == 11){
+            redirect('Code?message=code non valide');
+        }else{
+            $this->Code_model->update($code);
+            $this->Code_model->insert_user($this->session->userdata('iduser'), $id[0]->id);
+            redirect('Code');
+        }
+        
     }
 }
