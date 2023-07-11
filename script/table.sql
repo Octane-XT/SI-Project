@@ -15,7 +15,6 @@ CREATE TABLE IF NOT EXISTS utilisateur (
     poids DOUBLE DEFAULT 0,
     taille DOUBLE DEFAULT 0,
     isadmin INT DEFAULT 0,
-    isgold INT DEFAULT 0,
     date_creation DATETIME DEFAULT CURRENT_TIMESTAMP
 );
 
@@ -46,7 +45,10 @@ CREATE TABLE IF NOT EXISTS code (
 CREATE TABLE IF NOT EXISTS regime (
     id INT PRIMARY KEY AUTO_INCREMENT,
     nom VARCHAR(30),
-    objectif INT
+    objectif INT,
+    viande DOUBLE DEFAULT 0,
+    poisson DOUBLE DEFAULT 0,
+    volaille DOUBLE DEFAULT 0
 );
 
 CREATE TABLE IF NOT EXISTS aliment_objectif (
@@ -59,7 +61,6 @@ CREATE TABLE IF NOT EXISTS aliment_objectif (
     FOREIGN KEY (id_aliment) REFERENCES aliment(id),
     FOREIGN KEY (id_regime) REFERENCES regime(id)
 );
-insert into aliment_objectif(id_aliment,id_regime,quantite,poids,prix) values(6,1,100,1,100);
 
 CREATE TABLE IF NOT EXISTS sport_objectif (
     id INT PRIMARY KEY AUTO_INCREMENT,
@@ -78,7 +79,7 @@ CREATE TABLE IF NOT EXISTS abonnement (
     id_regime INT NOT NULL,
     poids_objectif DOUBLE,
     datedebut DATETIME DEFAULT CURRENT_TIMESTAMP,
-    datefin DOUBLE PRESISION,
+    datefin DOUBLE,
     FOREIGN KEY (id_utilisateur) REFERENCES utilisateur(id),
     FOREIGN KEY (id_regime) REFERENCES regime(id)
 );
@@ -112,4 +113,13 @@ CREATE TABLE IF NOT EXISTS utilisateur_code (
     id_utilisateur INT NOT NULL,
     id_code INT NOT NULL,
     date_utilisation DATETIME DEFAULT NULL
+);
+
+CREATE TABLE IF NOT EXISTS sport_abo (
+    id INT PRIMARY KEY AUTO_INCREMENT,
+    id_abonnement INT NOT NULL,
+    id_sport_objectif INT NOT NULL,
+    jour INT NOT NULL,
+    FOREIGN KEY (id_abonnement) REFERENCES abonnement(id),
+    FOREIGN KEY (id_sport_objectif) REFERENCES sport_objectif(id)
 );

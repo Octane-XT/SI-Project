@@ -13,14 +13,14 @@
 
   <div class="footer">
     <div class="log">
-      <img id="HooSooDook" src="../HooSooDook__final_b.png" srcset="../HooSooDook__final_b.png 1x, ../HooSooDook__final_b@2x.png 2x">
+      <img id="HooSooDook" src="<?php echo base_url("assets/images/logo.jpg"); ?>" srcset="../HooSooDook__final_b.png 1x, ../HooSooDook__final_b@2x.png 2x">
     </div>
     <div class="container">
       <div class="li imp web" id="Nous_Contacter_b">
         <span>Nous Contacter</span>
       </div>
       <div class="li imp web" id="A_Propos_de_Hoosdook">
-        <span>A Propos de Hoosdook</span>
+        <span>A Propos de Izay Mety</span>
       </div>
       <div class="li imp web" id="Nos_Services">
         <span>Nos Services</span>
