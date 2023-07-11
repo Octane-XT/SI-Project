@@ -7,13 +7,10 @@ class Admin_regime extends CI_Controller
     {
         parent::__construct();
         $this->load->model('Regime_model');
-<<<<<<< Updated upstream
         $this->load->model('Users_model');
-=======
         if (!$this->session->userdata('iduseradmin')) {
             redirect('Login');
         }
->>>>>>> Stashed changes
     }
 
     public function index()

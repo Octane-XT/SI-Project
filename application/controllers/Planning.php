@@ -6,7 +6,7 @@ class Planning extends CI_Controller
     public function __construct()
     {
         parent::__construct();
-        $this->load->model('Users_model')
+        $this->load->model('Users_model');
     }
 
     public function index()
